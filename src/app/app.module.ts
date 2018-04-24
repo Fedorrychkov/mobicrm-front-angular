@@ -9,11 +9,27 @@ import {
   FullLayoutComponent,
   AuthLayoutComponent
 } from './containers';
+
+import {
+  AppHeaderComponent,
+  AppAsideComponent,
+  AppSidebarComponent,
+  AppFooterComponent
+} from './components';
+
+const APP_COMPONENT = [
+  AppHeaderComponent,
+  AppSidebarComponent,
+  AppAsideComponent,
+  AppFooterComponent
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
+    ...APP_COMPONENT
   ],
   imports: [
     BrowserModule,
