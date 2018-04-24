@@ -22,7 +22,7 @@ export const routes: Routes = [
     {
       path: 'dashboard',
       component: FullLayoutComponent,
-      loadChildren: './core/dashboard/dashboard.module#DashboardModule',
+      loadChildren: './views/core/dashboard/dashboard.module#DashboardModule',
     },
   ];
   

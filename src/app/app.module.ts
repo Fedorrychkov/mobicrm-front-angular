@@ -3,14 +3,21 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing';
 
-
+import {
+  FullLayoutComponent,
+  AuthLayoutComponent
+} from './containers';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FullLayoutComponent,
+    AuthLayoutComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

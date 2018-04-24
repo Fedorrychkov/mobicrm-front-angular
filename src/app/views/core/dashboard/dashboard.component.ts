@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    templateUrl: 'auth.component.html'
+    templateUrl: 'dashboard.component.html'
 })
 
-export class AuthComponent implements OnInit {
+export class DashboardComponent implements OnInit {
     constructor() { }
 
     ngOnInit() { }
