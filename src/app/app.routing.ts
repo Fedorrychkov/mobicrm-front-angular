@@ -17,7 +17,7 @@ export const routes: Routes = [
     {
       path: 'auth',
       component: AuthLayoutComponent,
-      loadChildren: './auth/auth.module#AuthModule',
+      loadChildren: './views/auth/auth.module#AuthModule',
     },
     {
       path: 'dashboard',
