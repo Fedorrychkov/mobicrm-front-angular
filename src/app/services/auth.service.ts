@@ -18,13 +18,20 @@ export class AuthService {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.DIRECTOR_AUTH, { login: login, password: password})
         .then( (data) => {
-          this.storageService.set( 'mobicrm.auth_token', data.token );
-          this.router.navigate(['dashboard']);
+          if (data.token) {
+            this.storageService.set('mobicrm.auth_token', data.token);
+            this.router.navigate(['dashboard']);  
+          }
           res(data);
         }, (err) => {
           rej(err);
       });
     })
+  }
+
+  logout() {
+    this.storageService.clear();
+    this.router.navigate(['/auth']);
   }
 
 }
