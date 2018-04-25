@@ -1,0 +1,10 @@
+@import '../../../assets/styles/common/variables';
+
+:host {
+    display: block;
+    font-family: 'Yellowtail', cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: $offset-md*.8 0;
+    cursor: default;
+}
