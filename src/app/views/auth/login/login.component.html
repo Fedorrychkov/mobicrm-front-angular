@@ -8,6 +8,7 @@
     <input type="password" matInput placeholder="Пароль" formControlName="password">
   </mat-form-field>
   <div class="login-form__control">
+    <div class="message-error">{{ errorMessage }}</div>
     <button type="submit" mat-raised-button>Войти</button>
   </div>
 </form>
