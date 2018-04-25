@@ -1,0 +1,17 @@
+@import '../../../assets/styles/common/variables';
+
+:host {
+    height: 100vh;
+    background-color: $authpage-color;
+    color: $white-color;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: $offset-xl
+}
