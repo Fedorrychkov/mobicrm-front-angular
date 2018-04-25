@@ -9,6 +9,10 @@ export class AppSidebarComponent implements OnInit {
   public navigation: any[];
 
   constructor() { }
+  
+  logout() {
+    console.log('Logout');
+  }
 
   ngOnInit() {
     this.navigation = [

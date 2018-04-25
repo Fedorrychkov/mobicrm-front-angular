@@ -12,6 +12,10 @@
 }
 
 .sidebar {
+    height: calc(100vh - 105px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     &__navigation {
         & a {
             padding: $offset-mc*1.4 $offset-sm;
