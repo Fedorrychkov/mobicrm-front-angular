@@ -6,10 +6,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app-sidebar.component.scss']
 })
 export class AppSidebarComponent implements OnInit {
+  public navigation: any[];
 
   constructor() { }
 
   ngOnInit() {
+    this.navigation = [
+      {
+        link: '/dashboard',
+        name: 'Консоль',
+        icon: 'dashboard'
+      },
+      {
+        link: '/orders',
+        name: 'Заказы',
+        icon: 'present_to_all'
+      },
+      {
+        link: '/customers',
+        name: 'Клиенты',
+        icon: 'face'
+      },
+      {
+        link: '/employees',
+        name: 'Сотрудники',
+        icon: 'people_outline'
+      },
+      {
+        link: '/companies',
+        name: 'Компании',
+        icon: 'next_week'
+      }
+    ]
   }
 
 }

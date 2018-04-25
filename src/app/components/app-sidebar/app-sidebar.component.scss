@@ -12,5 +12,9 @@
 }
 
 .sidebar {
-    padding: $offset-sm;
+    &__navigation {
+        & a {
+            padding: $offset-mc*1.4 $offset-sm;
+        }
+    }
 }

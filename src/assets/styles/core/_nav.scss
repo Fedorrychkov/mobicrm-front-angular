@@ -1,0 +1,29 @@
+.nav {
+    &__list {
+
+    }
+    &__link {
+        padding: $offset-mc;
+        text-decoration: none;
+        font-size: 1.4rem;
+        color: $text-common;
+        transition: all .15s;
+        display: flex;
+        justify-content: flex-start;
+
+        &:hover {
+            background-color: $navbar-color-hover;
+        }
+        &--active {
+            color: $white-color;
+            background-color: $navbar-color-hover;
+            
+        }
+        &-title {
+
+        }
+        &-icon {
+            margin: 0 $offset-mc;
+        }
+    }
+}
