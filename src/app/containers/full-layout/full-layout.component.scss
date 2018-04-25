@@ -1,0 +1,18 @@
+@import '../../../assets/styles/common/variables';
+
+:host {
+    height: 100vh;
+    overflow: hidden;
+    position: relative; 
+}
+
+.main {
+    height: 100vh;
+    
+    .container-fluid {
+        padding: $offset-sm;
+        position: relative;
+        z-index: $content-index;
+        box-sizing: border-box;
+    }
+}

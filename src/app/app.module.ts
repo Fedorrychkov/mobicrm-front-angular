@@ -25,12 +25,19 @@ const APP_COMPONENT = [
   AppFooterComponent
 ];
 
+import { LogoComponent } from './shared';
+
+const APP_SHARED = [
+  LogoComponent
+];
+
 @NgModule({
   declarations: [
     AppComponent,
     FullLayoutComponent,
     AuthLayoutComponent,
-    ...APP_COMPONENT
+    ...APP_COMPONENT,
+    ...APP_SHARED
   ],
   imports: [
     BrowserModule,

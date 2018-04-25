@@ -1,0 +1,16 @@
+@import '../../../assets/styles/common/variables';
+
+:host {
+    height: 100vh;
+    width: $navbar-width;
+    background-color: $navbar-color;
+    color: $text-white;
+    display: block;
+    position: relative;
+    z-index: $sidebar-index;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    padding: $offset-sm;
+}
