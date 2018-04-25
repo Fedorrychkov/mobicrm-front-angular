@@ -1,0 +1,11 @@
+@import '../../../../assets/styles/common/variables';
+
+.login-form {
+    max-width: $navbar-width*1.5;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    &__control {
+        color: $navbar-color;
+    }
+}
