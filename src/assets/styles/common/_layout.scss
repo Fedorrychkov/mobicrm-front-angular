@@ -1,0 +1,28 @@
+// IE10&11 Flexbox fix
+@media all and (-ms-high-contrast:none) {
+    html {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.app,
+app-dashboard,
+app-root {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: $simple-color;
+}
+
+.app-body {
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+    flex-grow: 1;
+  
+    .main {
+        min-width: 0;
+        flex: 1;
+    }
+}
