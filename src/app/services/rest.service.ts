@@ -32,6 +32,12 @@ export class RestService {
 
   request<T>(params: RequestParams, endpoint: Endpoint): Promise<Response> {
     return new Promise<Response>((res, rej) => {
+      if(!environment.production) {
+        var date:any = new Date();
+        var start:string = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+        console.log(`${start}: Request [${params.method}] ${params.url}`);
+        console.log(params);
+      }
       this.http.request(params.url, {
         method: params.method,
         headers: params.headers,
@@ -115,10 +121,10 @@ export class RestService {
     const headers: Headers = new Headers();
 
     switch (endpoint) {
-      case Endpoint.AUTH:
+      case Endpoint.DIRECTOR_AUTH:
         params = {
-            url: '',
-            method: 'get'
+            url: 'director/login',
+            method: 'post'
         };
         break;
       default:

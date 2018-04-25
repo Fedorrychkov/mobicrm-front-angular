@@ -8,6 +8,18 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
 import {
+  RestService,
+  AuthService,
+  StorageService
+} from './services';
+
+const APP_SERVICES = [
+  RestService,
+  AuthService,
+  StorageService
+]
+
+import {
   FullLayoutComponent,
   AuthLayoutComponent
 } from './containers';
@@ -47,7 +59,9 @@ const APP_SHARED = [
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    ...APP_SERVICES
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
