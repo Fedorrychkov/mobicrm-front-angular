@@ -1,3 +1,3 @@
 export enum Endpoint {
-    AUTH,
+    DIRECTOR_AUTH,
 }
