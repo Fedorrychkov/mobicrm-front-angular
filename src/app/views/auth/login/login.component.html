@@ -1,9 +1,11 @@
-<form class="login-form" autocomplete="off">
+<form [formGroup]="loginForm"
+      (submit)="auth(loginForm.value)"
+      class="login-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Логин" autofocus>
+    <input type="text" matInput placeholder="Логин" formControlName="login" autofocus>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="password" matInput placeholder="Пароль">
+    <input type="password" matInput placeholder="Пароль" formControlName="password">
   </mat-form-field>
   <div class="login-form__control">
     <button type="submit" mat-raised-button>Войти</button>
