@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService, EventService } from '../../../services';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public authService: AuthService
+    public authService: AuthService,
+    public eventService: EventService
   ) { }
   
   auth(data) {
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         if (data.status !== 200) {
           this.errorMessage = data.body.textError;
+          this.eventService.broadcast('notification', {type: 'error', message: data.body.textError})
         }
       });
   }

@@ -1,0 +1,6 @@
+<div *ngIf="showPanel" class="notification notification-{{ type }}">
+  <div class="notification__inner">
+      <div class="notification__controller" (click)="closePanel()"><i class="material-icons">close</i></div>
+      <div class="notification__body">{{ message }}</div>
+  </div>
+</div>
