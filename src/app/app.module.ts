@@ -10,13 +10,15 @@ import { AppRoutingModule } from './app.routing';
 import {
   RestService,
   AuthService,
-  StorageService
+  StorageService,
+  EventService
 } from './services';
 
 const APP_SERVICES = [
   RestService,
   AuthService,
-  StorageService
+  StorageService,
+  EventService
 ]
 
 import {
@@ -38,10 +40,14 @@ const APP_COMPONENT = [
   AppFooterComponent
 ];
 
-import { LogoComponent } from './shared';
+import { 
+  LogoComponent,
+  NotificationComponent
+} from './shared';
 
 const APP_SHARED = [
-  LogoComponent
+  LogoComponent,
+  NotificationComponent
 ];
 
 @NgModule({
@@ -50,7 +56,8 @@ const APP_SHARED = [
     FullLayoutComponent,
     AuthLayoutComponent,
     ...APP_COMPONENT,
-    ...APP_SHARED
+    ...APP_SHARED,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
