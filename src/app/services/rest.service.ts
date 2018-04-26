@@ -127,6 +127,120 @@ export class RestService {
             method: 'post'
         };
         break;
+      case Endpoint.DIRECTOR_SIGNUP:
+        params = {
+            url: 'director',
+            method: 'post'
+        };
+        break;
+      case Endpoint.DIRECTOR_UPDATE:
+          params = {
+              url: 'director',
+              method: 'put'
+          };
+          break;
+      case Endpoint.DIRECTOR_COMPANIES:
+          params = {
+              url: 'director/companies',
+              method: 'get'
+          };
+          break;
+      case Endpoint.COMPANY_CREATE:
+          params = {
+              url: 'company',
+              method: 'post'
+          };
+          break;
+      case Endpoint.COMPANY_UPDATE:
+          params = {
+              url: 'company',
+              method: 'put'
+          };
+          break;
+      case Endpoint.COMPANY_GET:
+          params = {
+              url: 'company/:id',
+              method: 'get'
+          };
+          break;
+      case Endpoint.ORDER_CREATE:
+          params = {
+              url: 'company/orders',
+              method: 'post'
+          };
+          break;
+      case Endpoint.ORDER_UPDATE:
+          params = {
+              url: 'company/orders',
+              method: 'put'
+          };
+          break;
+      case Endpoint.ORDER_LIST:
+          params = {
+              url: 'company/:id/orders',
+              method: 'get'
+          };
+          break;
+      case Endpoint.ORDER_GET:
+          params = {
+              url: 'company/:id/orders/:orderId',
+              method: 'get'
+          };
+          break;
+      case Endpoint.CUSTOMER_CREATE:
+          params = {
+              url: 'company/customers',
+              method: 'post'
+          };
+          break;
+      case Endpoint.CUSTOMER_UPDATE:
+          params = {
+              url: 'company/customers',
+              method: 'put'
+          };
+          break;
+      case Endpoint.CUSTOMER_LIST:
+          params = {
+              url: 'company/:id/customers',
+              method: 'get'
+          };
+          break;
+      case Endpoint.CUSTOMER_PHONE:
+          params = {
+              url: 'company/:id/customers/phone/:phone',
+              method: 'get'
+          };
+          break;
+      case Endpoint.CUSTOMER_GET:
+          params = {
+              url: 'company/:id/customers/:customerId',
+              method: 'get'
+          };
+          break;
+      case Endpoint.EMPLOYEE_CREATE:
+          params = {
+              url: 'company/employees',
+              method: 'post'
+          };
+          break;
+      case Endpoint.EMPLOYEE_UPDATE:
+          params = {
+              url: 'company/employees',
+              method: 'put'
+          };
+          break;
+      case Endpoint.EMPLOYEE_LIST:
+          params = {
+              url: 'company/:id/employees',
+              method: 'get'
+          };
+          break;
+      case Endpoint.EMPLOYEE_GET:
+          params = {
+              url: 'company/:id/employees/:employeeId',
+              method: 'get'
+          };
+          break;
       default:
         break;
     }
