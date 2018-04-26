@@ -7,6 +7,15 @@ import { StorageService }  from './storage.service';
 
 @Injectable()
 export class AuthService {
+  
+  private _userId: Number;
+  private _userRole: Number;
+  
+  get userId() {return this._userId}
+  set userId(id: Number) {this._userId = id}
+
+  get userRole() {return this._userRole}
+  set userRole(role: Number) {this._userRole = role}
 
   constructor(
     public router:Router,
@@ -20,6 +29,10 @@ export class AuthService {
         .then( (data) => {
           if (data.token) {
             this.storageService.set('mobicrm.auth_token', data.token);
+            this.storageService.set('mobicrm.user_id', data.body.id);
+            this.storageService.set('mobicrm.user_role', data.body.role);
+            this.userId = data.body.id;
+            this.userRole = data.body.role;
             this.router.navigate(['dashboard']);  
           }
           res(data);
