@@ -11,10 +11,26 @@ export class AuthService {
   private _userId: Number;
   private _userRole: Number;
   
+  /**
+   * get user id
+   */
   get userId() {return this._userId}
+
+  /**
+   * set user id
+   * @param id user id
+   */
   set userId(id: Number) {this._userId = id}
 
+  /**
+   * get user role number
+   */
   get userRole() {return this._userRole}
+
+  /**
+   * set user role number
+   * @param role number of role
+   */
   set userRole(role: Number) {this._userRole = role}
 
   constructor(
@@ -23,6 +39,11 @@ export class AuthService {
     public storageService:StorageService
   ) { }
   
+  /**
+   * login method
+   * @param login user login
+   * @param password user password
+   */
   login(login: String, password: String): Promise<any> {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.DIRECTOR_AUTH, { login: login, password: password})
@@ -42,6 +63,9 @@ export class AuthService {
     })
   }
 
+  /**
+   * logout method, cleare localstorage and navigate to /auth
+   */
   logout() {
     this.storageService.clear();
     this.router.navigate(['/auth']);
