@@ -11,14 +11,16 @@ import {
   RestService,
   AuthService,
   StorageService,
-  EventService
+  EventService,
+  CompanyService
 } from './services';
 
 const APP_SERVICES = [
   RestService,
   AuthService,
   StorageService,
-  EventService
+  EventService,
+  CompanyService
 ]
 
 import {

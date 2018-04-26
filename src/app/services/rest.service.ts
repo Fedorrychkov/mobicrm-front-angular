@@ -6,6 +6,7 @@ import { Http,
 import { environment } from './../../environments/environment';
 import { Endpoint } from '../enums/endpoint.enum';
 import { KeyVal, RequestParams } from '../interfaces/rest';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class RestService {
@@ -25,7 +26,8 @@ export class RestService {
 }
 
   constructor(
-    public http: Http
+    public http: Http,
+    public storageService: StorageService
   ) {
     this.apiUrl = environment.apiUrl;
   }
@@ -62,6 +64,10 @@ export class RestService {
             }
           }
         }, (err) => {
+            if (err && err.status === 401 && endpoint != Endpoint.DIRECTOR_AUTH) {
+                this.storageService.remove('mobicrm.auth_token');
+                console.log('remove token');
+            }
           rej(err);
       });
     });
@@ -248,6 +254,9 @@ export class RestService {
 
     if ( ['post', 'put', 'patch'].indexOf(params.method) !== -1 ) {
         headers.append('Content-Type', 'application/json');
+    }
+    if( this.storageService.has('mobicrm.auth_token') ) {
+        headers.append('authorization', 'Bearer ' + this.storageService.get('mobicrm.auth_token'));
     }
     params.headers = headers;
     return params;
