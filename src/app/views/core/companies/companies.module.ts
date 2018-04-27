@@ -12,6 +12,9 @@ import { CompaniesListComponent } from './companies-list/companies-list.componen
 import { NewCompanyComponent } from './new-company/new-company.component';
 import { CompanyComponent } from './company/company.component';
 import { OrdersComponent } from './company/orders/orders.component';
+import { DashboardComponent } from './company/dashboard/dashboard.component';
+import { CustomersComponent } from './company/customers/customers.component';
+import { EmployeesComponent } from './company/employees/employees.component';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -32,6 +35,9 @@ const APP_MATERIAL = [
     NewCompanyComponent,
     CompanyComponent,
     OrdersComponent,
+    DashboardComponent,
+    CustomersComponent,
+    EmployeesComponent,
   ]
 })
 export class CompaniesModule { }

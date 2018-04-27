@@ -5,6 +5,9 @@ import { Routes,
 import { СompaniesComponent } from './companies.component';
 import { CompanyComponent } from './company/company.component';
 import { OrdersComponent } from './company/orders/orders.component';
+import { CustomersComponent } from './company/customers/customers.component';
+import { EmployeesComponent } from './company/employees/employees.component';
+import { DashboardComponent } from './company/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -16,6 +19,9 @@ const routes: Routes = [
   },
   { path: ':id', component: CompanyComponent, children: [
     { path: 'orders', component: OrdersComponent, },
+    { path: 'customers', component: CustomersComponent, },
+    { path: 'employees', component: EmployeesComponent, },
+    { path: 'dashboard', component: DashboardComponent, },
   ]},
 ];
 
