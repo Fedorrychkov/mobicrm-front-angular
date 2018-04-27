@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { EventService, AuthService, CompanyService } from '../../services';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-company-form',
@@ -16,12 +17,14 @@ export class NewCompanyFormComponent implements OnInit{
   public tags: string[];
   public errorMessage: string;
   public isLoading = false;
+  public id: string;
 
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
     public eventService: EventService,
     public companyService: CompanyService,
+    public router: Router,
     public dialogRef: MatDialogRef<NewCompanyFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -36,8 +39,9 @@ export class NewCompanyFormComponent implements OnInit{
   createCompany(data) {
     console.log(data);
     this.companyService.createCompany(data)
-      .then( data => {
-        console.log(data);
+      .then( (data) => {
+        this.router.navigate([`companies/${data.id}`]);
+        this.dialogRef.close();
       });
   }
   ngOnInit() {
