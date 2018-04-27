@@ -1,0 +1,12 @@
+.popup {
+    &__close {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
+}
+
+.mat-dialog-container {
+    position: relative;
+}
