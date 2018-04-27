@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -8,7 +9,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { СompaniesComponent } from './companies.component';
 import { СompaniesRoutingModule } from './companies.routing';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
-
+import { NewCompanyComponent } from './new-company/new-company.component';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -20,10 +21,13 @@ const APP_MATERIAL = [
   imports: [
     СompaniesRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
     ...APP_MATERIAL
   ],
   declarations: [ 
     СompaniesComponent,
-    CompaniesListComponent ]
+    CompaniesListComponent,
+    NewCompanyComponent,
+  ]
 })
 export class CompaniesModule { }

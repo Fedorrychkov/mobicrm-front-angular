@@ -31,6 +31,7 @@
         cursor: pointer;
         margin: $offset-lg 0;
         max-width: $screen-sm;
+        width: 100%;
         transition: all .3s;
         &:hover {
             transform: translate(0, -3px);
