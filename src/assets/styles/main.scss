@@ -6,10 +6,13 @@
 
 // Core styles
 @import './core/nav';
+@import './core/notification';
 
 //Auth styles
 @import './auth/auth-page';
 
 //Shared styles
 @import './shared/cursor';
-@import './core/notification';
+@import './shared/spinner';
+@import './shared/page';
+@import './shared/mcard';
