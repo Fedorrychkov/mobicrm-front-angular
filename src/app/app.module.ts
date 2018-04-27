@@ -58,8 +58,7 @@ const APP_SHARED = [
     FullLayoutComponent,
     AuthLayoutComponent,
     ...APP_COMPONENT,
-    ...APP_SHARED,
-    NotificationComponent
+    ...APP_SHARED
   ],
   imports: [
     BrowserModule,
