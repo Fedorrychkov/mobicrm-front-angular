@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.isLoading = false;
         if (data.status !== 200) {
           this.errorMessage = data.body.textError;
-          this.eventService.broadcast('notification', {type: 'error', message: data.body.textError})
+          this.eventService.broadcast('notification', {type: 'error', message: data.body.textError});
         }
       });
   }
