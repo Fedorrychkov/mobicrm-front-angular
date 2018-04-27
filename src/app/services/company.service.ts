@@ -51,9 +51,14 @@ export class CompanyService {
    * 
    * @param req object - name, description and etc.
    */
-  createCompany(...req): Promise<any> {
+  createCompany(req): Promise<any> {
     return new Promise((res, rej) => {
-      this.restService.get(Endpoint.COMPANY_CREATE, {...req})
+      this.restService.get(Endpoint.COMPANY_CREATE, {
+        name: req.name,
+        description: req.description,
+        tags: req.tags,
+        address: req.address
+      })
         .then( data => {
           res(data);
         }, err => {
