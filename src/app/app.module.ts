@@ -22,7 +22,10 @@ import {
   AuthService,
   StorageService,
   EventService,
-  CompanyService
+  CompanyService,
+  OrderService,
+  CustomerService,
+  EmployeeService
 } from './services';
 
 const APP_SERVICES = [
@@ -30,7 +33,10 @@ const APP_SERVICES = [
   AuthService,
   StorageService,
   EventService,
-  CompanyService
+  CompanyService,
+  OrderService,
+  CustomerService,
+  EmployeeService
 ];
 
 import {
