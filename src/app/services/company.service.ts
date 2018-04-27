@@ -40,6 +40,7 @@ export class CompanyService {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.COMPANY_GET, {id: id})
         .then( data => {
+          this.companyId = data.id;
           res(data);
         }, err =>{
           rej(err);
