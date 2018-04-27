@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyService } from '../../../services/company.service';
+import { EventService, CompanyService } from '../../../services';
 
 @Component({
     templateUrl: 'companies.component.html'
@@ -8,15 +8,38 @@ import { CompanyService } from '../../../services/company.service';
 export class СompaniesComponent implements OnInit {
     public companies;
     public isLoaded = false;
+    public headerNav: any[];
+
     constructor(
+        public eventService: EventService,
         public companyService: CompanyService
     ) { }
 
     ngOnInit() {
+        this.headerNav = [
+            {
+                link: '/',
+                name: 'Все компании'
+            },
+            // {
+            //     link: '/customers',
+            //     name: 'Клиенты'
+            // },
+            // {
+            //     link: '/employees',
+            //     name: 'Сотрудники'
+            // },
+            // {
+            //     link: '/orders',
+            //     name: 'Все заказы'
+            // }
+        ];
         this.companyService.getCompanies()
             .then( (data) => {
                 this.companies = data;
                 this.isLoaded = true;
             });
+        
+        this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
     }
 }
