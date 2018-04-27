@@ -1,3 +1,23 @@
-<p>
-  app-header works!
-</p>
+<div class="header">
+  <div class="header__left">
+    <div class="header__left--top">
+      <p>
+        app-header works!
+      </p>
+    </div>
+    <div class="header__left--bottom">
+      <div class="header__navigation" *ngIf="navigation">
+        <nav class="header-nav nav">
+          <ul class="nav__list">
+            <li *ngFor="let item of navigation" class="nav__item">
+                <a [routerLink]="item.link" class="nav__link" routerLinkActive="nav__link--active">
+                  <span class="nav__link-title">{{ item.name }}</span>
+                </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="header__right"></div>
+</div>
