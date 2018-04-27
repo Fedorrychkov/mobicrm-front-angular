@@ -2,10 +2,20 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
+
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+
+const APP_MATERIAL = [
+  MatDialogModule,
+  MatInputModule,
+  MatButtonModule
+];
 
 import {
   RestService,
@@ -21,7 +31,7 @@ const APP_SERVICES = [
   StorageService,
   EventService,
   CompanyService
-]
+];
 
 import {
   FullLayoutComponent,
@@ -44,12 +54,14 @@ const APP_COMPONENT = [
 
 import { 
   LogoComponent,
-  NotificationComponent
+  NotificationComponent,
+  NewCompanyFormComponent
 } from './shared';
 
 const APP_SHARED = [
   LogoComponent,
-  NotificationComponent
+  NotificationComponent,
+  NewCompanyFormComponent
 ];
 
 @NgModule({
@@ -64,11 +76,16 @@ const APP_SHARED = [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ...APP_MATERIAL
   ],
   providers: [
     ...APP_SERVICES
+  ],
+  entryComponents: [
+    NewCompanyFormComponent
   ],
   bootstrap: [AppComponent]
 })
