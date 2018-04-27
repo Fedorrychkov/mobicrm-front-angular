@@ -12,6 +12,7 @@ export class CompanyComponent implements OnInit {
   private id: string;
 
   constructor(
+    public router: Router,
     public route: ActivatedRoute,
     public eventService: EventService
   ) { }
@@ -22,6 +23,10 @@ export class CompanyComponent implements OnInit {
     });
     
     this.headerNav = [
+      {
+          link: `${this.id}/dashboard`,
+          name: 'Панель управления'
+      },
       {
           link: `${this.id}/orders`,
           name: 'Заказы'
@@ -36,6 +41,7 @@ export class CompanyComponent implements OnInit {
       },
   ];
     this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
+    this.router.navigate([`companies/${this.id}/dashboard`]);
   }
 
 }

@@ -40,7 +40,7 @@ export class NewCompanyFormComponent implements OnInit{
     console.log(data);
     this.companyService.createCompany(data)
       .then( (data) => {
-        this.router.navigate([`companies/${data.id}`]);
+        this.router.navigate([`companies/${data.id}/dashboard`]);
         this.dialogRef.close();
       });
   }
