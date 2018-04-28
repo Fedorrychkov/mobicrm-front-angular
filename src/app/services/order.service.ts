@@ -4,7 +4,7 @@ import { Router }          from '@angular/router';
 import { Endpoint }        from '../enums/endpoint.enum';
 import { RestService }     from './rest.service';
 import { StorageService }  from './storage.service';
-import { CompanyService } from '.';
+import { CompanyService } from './company.service';
 
 @Injectable()
 export class OrderService {
@@ -28,6 +28,21 @@ export class OrderService {
         }, err => {
           rej(err);
         });
+    });
+  }
+  
+  /**
+   * 
+   * @param res object
+   */
+  createOrder(res: any): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.ORDER_CREATE, {})
+        .then( data => {
+          res(data);
+        }, err => {
+          rej(err);
+        })
     });
   }
 
