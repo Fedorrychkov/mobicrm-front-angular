@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestService, StorageService, CompanyService } from '.';
 import { Endpoint } from '../enums/endpoint.enum';
+import { CompanyService } from './company.service';
+import { RestService }from './rest.service';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class EmployeeService {
