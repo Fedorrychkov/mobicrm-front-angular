@@ -9,10 +9,10 @@ export interface ICompany {
     status?: string,
     tags?: string,
     updatedAt: string
-  }
-  
+}
+
 export interface ICompanies {
     body?: ICompany[],
     length?: number
-  }
+}
   
