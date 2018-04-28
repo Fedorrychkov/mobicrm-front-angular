@@ -29,4 +29,23 @@ export class CustomerService {
         });
     });
   }
+
+  createCustomer(req): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.CUSTOMER_CREATE, {
+        company_id: req.company_id || this.companyService.companyId,
+        first_name: req.first_name,
+        last_name: req.last_name,
+        phone: req.phone,
+        email: req.email,
+        address: req.address,
+        avatar: '',
+        status: 'NEW',
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      });
+    });
+  }
 }
