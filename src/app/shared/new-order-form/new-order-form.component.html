@@ -1,0 +1,18 @@
+<div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
+<form [formGroup]="newOrderForm"
+      (submit)="createOrder(newOrderForm.value)"
+      class="create-form" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Название" formControlName="name" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Номер клиента" formControlName="customerPhone" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+      <textarea matInput placeholder="Описание заказа" formControlName="description" matTextareaAutosize matAutosizeMinRows="2"
+        matAutosizeMaxRows="5"></textarea>
+  </mat-form-field>
+  <div class="new-company-form__control">
+    <button type="submit" mat-raised-button>Создать заказ</button>
+  </div>
+</form>
