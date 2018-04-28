@@ -42,8 +42,10 @@ export class NewCustomerFormComponent implements OnInit {
     this.customerService.createCustomer(req)
       .then( (data) => {
         // this.router.navigate([`companies/${data.id}/dashboard`]);
-        // this.dialogRef.close();
-        console.log(data);
+        console.log(data); // TODO: Добавить обработку ошибки, связанную с существующим телефоном.
+        data.status === 400 ? 
+          this.eventService.broadcast('notification', {type: 'error', message: data.body.errorText})
+          : this.dialogRef.close();
         this.eventService.broadcast('customer-list-update');
       });
   }

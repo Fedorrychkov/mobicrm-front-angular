@@ -1,6 +1,6 @@
-<div class="companies-list" *ngIf="isLoaded">
-  <div class="companies-list__empty" *ngIf="!_companies.body.length">У Вас ещё нет компании. Пора её создать!</div>
-  <div class="companies-list__notempty" *ngIf="_companies.body.length">
+<div class="page-content companies-list" *ngIf="isLoaded">
+  <div class="page-content__empty companies-list__empty" *ngIf="!_companies.body.length">У Вас ещё нет компании. Пора её создать!</div>
+  <div class="page-content__notempty companies-list__notempty" *ngIf="_companies.body.length">
     <h2>Все компании</h2>
     <ul class="companies-list__list">
       <mat-card *ngFor="let item of _companies.body" [routerLink]="item.id" class="companies-list__item">

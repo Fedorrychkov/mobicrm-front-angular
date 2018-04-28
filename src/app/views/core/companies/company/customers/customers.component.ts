@@ -8,6 +8,8 @@ import { CustomerService, EventService, CompanyService } from '../../../../../se
 })
 export class CustomersComponent implements OnInit {
   private companyId: string;
+  public customers: any;
+  public isLoaded = false;
 
   constructor(
     private customerService: CustomerService,
@@ -17,7 +19,8 @@ export class CustomersComponent implements OnInit {
   getCustomers() {
     this.customerService.getCustomers(this.companyId)
       .then( data => {
-        console.log('customers -->', data);
+        this.customers = data;
+        this.isLoaded = true;
       });
   }
   ngOnInit() {
