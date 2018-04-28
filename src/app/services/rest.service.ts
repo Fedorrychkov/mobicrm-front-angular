@@ -165,7 +165,7 @@ export class RestService {
           break;
       case Endpoint.COMPANY_GET:
           params = {
-              url: 'company/:id',
+              url: 'company/{id}',
               method: 'get'
           };
           break;
@@ -183,13 +183,13 @@ export class RestService {
           break;
       case Endpoint.ORDER_LIST:
           params = {
-              url: 'company/:id/orders',
+              url: 'company/{id}/orders',
               method: 'get'
           };
           break;
       case Endpoint.ORDER_GET:
           params = {
-              url: 'company/:id/orders/:orderId',
+              url: 'company/{id}/orders/{orderId}',
               method: 'get'
           };
           break;
@@ -207,19 +207,19 @@ export class RestService {
           break;
       case Endpoint.CUSTOMER_LIST:
           params = {
-              url: 'company/:id/customers',
+              url: 'company/{id}/customers',
               method: 'get'
           };
           break;
       case Endpoint.CUSTOMER_PHONE:
           params = {
-              url: 'company/:id/customers/phone/:phone',
+              url: 'company/{id}/customers/phone/{phone}',
               method: 'get'
           };
           break;
       case Endpoint.CUSTOMER_GET:
           params = {
-              url: 'company/:id/customers/:customerId',
+              url: 'company/{id}/customers/{customerId}',
               method: 'get'
           };
           break;
@@ -237,13 +237,13 @@ export class RestService {
           break;
       case Endpoint.EMPLOYEE_LIST:
           params = {
-              url: 'company/:id/employees',
+              url: 'company/{id}/employees',
               method: 'get'
           };
           break;
       case Endpoint.EMPLOYEE_GET:
           params = {
-              url: 'company/:id/employees/:employeeId',
+              url: 'company/{id}/employees/{employeeId}',
               method: 'get'
           };
           break;
