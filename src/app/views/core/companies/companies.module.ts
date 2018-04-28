@@ -2,10 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
 import { СompaniesComponent } from './companies.component';
 import { СompaniesRoutingModule } from './companies.routing';
 import { CompaniesListComponent } from './companies-list/companies-list.component';
@@ -24,11 +20,13 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
+import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule } from '@angular/material';
 
 const APP_MATERIAL = [
   MatButtonModule,
   MatCardModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatTableModule,
 ]
 
 @NgModule({

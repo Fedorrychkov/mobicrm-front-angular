@@ -7,14 +7,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { 
+  MatDialogModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule,
+  MatProgressSpinnerModule 
+} from '@angular/material';
 
 const APP_MATERIAL = [
   MatDialogModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatCardModule,
+  MatProgressSpinnerModule
 ];
 
 import {
