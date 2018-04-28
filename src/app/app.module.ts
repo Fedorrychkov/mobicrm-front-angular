@@ -62,14 +62,16 @@ import {
   LogoComponent,
   NotificationComponent,
   NewCompanyFormComponent,
-  NewOrderFormComponent
+  NewOrderFormComponent,
+  NewCustomerFormComponent
 } from './shared';
 
 const APP_SHARED = [
   LogoComponent,
   NotificationComponent,
   NewCompanyFormComponent,
-  NewOrderFormComponent
+  NewOrderFormComponent,
+  NewCustomerFormComponent
 ];
 
 @NgModule({
@@ -78,7 +80,7 @@ const APP_SHARED = [
     FullLayoutComponent,
     AuthLayoutComponent,
     ...APP_COMPONENT,
-    ...APP_SHARED
+    ...APP_SHARED,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +96,8 @@ const APP_SHARED = [
   ],
   entryComponents: [
     NewCompanyFormComponent,
-    NewOrderFormComponent
+    NewOrderFormComponent,
+    NewCustomerFormComponent
   ],
   bootstrap: [AppComponent]
 })
