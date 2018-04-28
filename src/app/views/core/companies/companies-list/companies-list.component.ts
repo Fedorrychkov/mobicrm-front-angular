@@ -1,22 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-
-interface ICompany {
-  address?: string,
-  avatar?: string,
-  createdAt: string,
-  description?: string,
-  director_id: number,
-  id: number,
-  name?: string,
-  status?: string,
-  tags?: string,
-  updatedAt: string
-}
-
-interface ICompanies {
-  body?: ICompany[],
-  length?: number
-}
+import { ICompanies, ICompany } from '../../../../interfaces/company';
 
 @Component({
   selector: 'app-companies-list',
