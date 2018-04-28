@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService } from '../../../../services';
+import { EventService, CompanyService } from '../../../../services';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -14,14 +14,21 @@ export class CompanyComponent implements OnInit {
   constructor(
     public router: Router,
     public route: ActivatedRoute,
-    public eventService: EventService
+    public eventService: EventService,
+    private companyService: CompanyService
   ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.companyService.companyId = params['id'];
     });
     
+    this.companyService.getCompany(this.id)
+      .then( res => {
+        console.log(res);
+      });
+
     this.headerNav = [
       {
           link: `${this.id}/dashboard`,
