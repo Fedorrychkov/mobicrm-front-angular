@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { EventService, AuthService, CompanyService, OrderService } from '../../services';
+import { EventService, CustomerService } from '../../services';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -23,9 +23,8 @@ export class NewCustomerFormComponent implements OnInit {
 
   constructor(
     public fb: FormBuilder,
-    public authService: AuthService,
     public eventService: EventService,
-    public orderService:OrderService,
+    public customerService: CustomerService,
     public router: Router,
     public dialogRef: MatDialogRef<NewCustomerFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -38,13 +37,15 @@ export class NewCustomerFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  createCustomer(data) {
-    console.log(data);
-    // this.orderService.createOrder(data)
-    //   .then( (data) => {
-    //     // this.router.navigate([`companies/${data.id}/dashboard`]);
-    //     // this.dialogRef.close();
-    //   });
+  createCustomer(req) {
+    req.company_id = this.data.company_id;
+    this.customerService.createCustomer(req)
+      .then( (data) => {
+        // this.router.navigate([`companies/${data.id}/dashboard`]);
+        // this.dialogRef.close();
+        console.log(data);
+        this.eventService.broadcast('customer-list-update');
+      });
   }
   ngOnInit() {
     this.newCustomerForm = this.fb.group({
