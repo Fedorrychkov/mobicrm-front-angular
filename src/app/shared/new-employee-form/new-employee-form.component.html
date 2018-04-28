@@ -1,0 +1,32 @@
+<div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
+<form [formGroup]="newEmployeeForm"
+      (submit)="createEmployee(newEmployeeForm.value)"
+      class="create-form" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Логин для входа" formControlName="login" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Пароль для входа" formControlName="password" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Должность" formControlName="role" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Почта клиента" formControlName="email" autofocus>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus>
+  </mat-form-field>
+  <div class="new-company-form__control">
+    <button type="submit" mat-raised-button>Создать клиента</button>
+  </div>
+</form>
