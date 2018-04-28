@@ -9,7 +9,7 @@
     left: 0;
     right: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1001;
 }
 
 .notification {
@@ -18,7 +18,7 @@
     // top: 0;
     // right: 0;
     width: 100%;
-    z-index: 10;
+    z-index: 1001;
     // display: block;
     color: $white-color;
     overflow: hidden;
