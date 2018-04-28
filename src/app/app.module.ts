@@ -63,7 +63,8 @@ import {
   NotificationComponent,
   NewCompanyFormComponent,
   NewOrderFormComponent,
-  NewCustomerFormComponent
+  NewCustomerFormComponent,
+  NewEmployeeFormComponent,
 } from './shared';
 
 const APP_SHARED = [
@@ -71,7 +72,8 @@ const APP_SHARED = [
   NotificationComponent,
   NewCompanyFormComponent,
   NewOrderFormComponent,
-  NewCustomerFormComponent
+  NewCustomerFormComponent,
+  NewEmployeeFormComponent,
 ];
 
 @NgModule({
@@ -97,7 +99,8 @@ const APP_SHARED = [
   entryComponents: [
     NewCompanyFormComponent,
     NewOrderFormComponent,
-    NewCustomerFormComponent
+    NewCustomerFormComponent,
+    NewEmployeeFormComponent,
   ],
   bootstrap: [AppComponent]
 })
