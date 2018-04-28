@@ -7,10 +7,10 @@ import { StorageService }  from './storage.service';
 
 @Injectable()
 export class CompanyService {
-  private _companyId: Number;
+  private _companyId: string;
 
   get companyId() {return this._companyId}
-  set companyId(id: Number) {this._companyId = id}
+  set companyId(id: string) {this._companyId = id}
 
   constructor(
     public router:Router,
@@ -36,11 +36,11 @@ export class CompanyService {
    * get company info by id
    * @param id company identificator
    */
-  getCompany(id: Number): Promise<any> {
+  getCompany(id?: string): Promise<any> {
     return new Promise((res, rej) => {
-      this.restService.get(Endpoint.COMPANY_GET, {id: id})
+      this.restService.get(Endpoint.COMPANY_GET, {id: id || this.companyId})
         .then( data => {
-          this.companyId = data.id;
+          this.companyId = data.body.id;
           res(data);
         }, err =>{
           rej(err);
