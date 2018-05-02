@@ -1,18 +1,62 @@
 <div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
 <form [formGroup]="newOrderForm"
-      (submit)="createOrder(newOrderForm.value)"
+      (submit)="createOrder(newOrderForm.value, newOrderForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Название" formControlName="name" autofocus>
+    <input type="text" matInput placeholder="Название" formControlName="name" [(ngModel)]="name" autofocus>
+    <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Номер клиента" formControlName="customerPhone" autofocus>
+    <input type="text" matInput placeholder="Телефон клиента" (change)="checkCustomer(newOrderForm.value)" formControlName="customerPhone" [(ngModel)]="customerPhone">
+    <button mat-button *ngIf="customerPhone" matSuffix mat-icon-button aria-label="Clear" (click)="customerPhone=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="form-more" *ngIf="fillCustomer">
+    <h4 class="form-more-title">Сведения о клиенте</h4>
+    <div class="form-box">
+      <mat-form-field class="example-full-width">
+        <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" matInput placeholder="Имя клиента" formControlName="customerFName" [(ngModel)]="customerFName">
+        <button mat-button *ngIf="customerFName" matSuffix mat-icon-button aria-label="Clear" (click)="customerFName=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" matInput placeholder="Фамилия клиента" formControlName="customerLName" [(ngModel)]="customerLName">
+        <button mat-button *ngIf="customerLName" matSuffix mat-icon-button aria-label="Clear" (click)="customerLName=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="example-full-width">
+      <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" matInput placeholder="Почта клиента" formControlName="customerEmail" [(ngModel)]="customerEmail">
+      <button mat-button *ngIf="customerEmail" matSuffix mat-icon-button aria-label="Clear" (click)="customerEmail=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" matInput placeholder="Адрес клиента" formControlName="customerAddress" [(ngModel)]="customerAddress">
+      <button mat-button *ngIf="customerAddress" matSuffix mat-icon-button aria-label="Clear" (click)="customerAddress=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Адрес" formControlName="address" [(ngModel)]="address" autofocus>
+    <button mat-button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
       <textarea matInput placeholder="Описание заказа" formControlName="description" matTextareaAutosize matAutosizeMinRows="2"
-        matAutosizeMaxRows="5"></textarea>
+        matAutosizeMaxRows="5" [(ngModel)]="description"></textarea>
+    <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <div class="new-company-form__control">
-    <button type="submit" mat-raised-button>Создать заказ</button>
+    <button type="submit" mat-raised-button [disabled]="!newOrderForm.valid">Создать заказ</button>
   </div>
 </form>
