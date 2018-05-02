@@ -151,6 +151,12 @@ export class RestService {
               method: 'get'
           };
           break;
+      case Endpoint.DIRECTOR_GET:
+          params = {
+            url: 'director',
+            method: 'get'
+          };
+          break;
       case Endpoint.COMPANY_CREATE:
           params = {
               url: 'company',

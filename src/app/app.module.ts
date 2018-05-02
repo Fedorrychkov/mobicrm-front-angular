@@ -31,7 +31,8 @@ import {
   CompanyService,
   OrderService,
   CustomerService,
-  EmployeeService
+  EmployeeService,
+  DirectorService
 } from './services';
 
 const APP_SERVICES = [
@@ -42,7 +43,8 @@ const APP_SERVICES = [
   CompanyService,
   OrderService,
   CustomerService,
-  EmployeeService
+  EmployeeService,
+  DirectorService
 ];
 
 import {
@@ -71,6 +73,7 @@ import {
   NewOrderFormComponent,
   NewCustomerFormComponent,
   NewEmployeeFormComponent,
+  UserComponent,
 } from './shared';
 
 const APP_SHARED = [
@@ -80,6 +83,7 @@ const APP_SHARED = [
   NewOrderFormComponent,
   NewCustomerFormComponent,
   NewEmployeeFormComponent,
+  UserComponent,
 ];
 
 @NgModule({
@@ -89,6 +93,7 @@ const APP_SHARED = [
     AuthLayoutComponent,
     ...APP_COMPONENT,
     ...APP_SHARED,
+    UserComponent,
   ],
   imports: [
     BrowserModule,
