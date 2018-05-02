@@ -1,8 +1,8 @@
 .popup {
     &__close {
         position: absolute;
-        right: 0;
-        top: 0;
+        right: $offset-mc;
+        top: $offset-mc;
         cursor: pointer;
     }
 }
