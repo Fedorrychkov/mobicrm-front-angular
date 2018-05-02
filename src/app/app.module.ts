@@ -12,7 +12,8 @@ import {
   MatInputModule,
   MatButtonModule,
   MatCardModule,
-  MatProgressSpinnerModule 
+  MatProgressSpinnerModule,
+  MatIconModule,
 } from '@angular/material';
 
 const APP_MATERIAL = [
@@ -20,7 +21,8 @@ const APP_MATERIAL = [
   MatInputModule,
   MatButtonModule,
   MatCardModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatIconModule,
 ];
 
 import {
