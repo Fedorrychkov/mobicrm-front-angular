@@ -26,7 +26,6 @@ export class CompanyComponent implements OnInit {
     
     this.companyService.getCompany(this.id)
       .then( res => {
-        console.log(res);
       });
 
     this.headerNav = [
@@ -48,6 +47,7 @@ export class CompanyComponent implements OnInit {
       },
   ];
     this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
+    this.eventService.broadcast('app-header-back', {link: 'companies'});
     this.router.navigate([`companies/${this.id}/dashboard`]);
   }
 
