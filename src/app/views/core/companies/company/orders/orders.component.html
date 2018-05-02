@@ -3,9 +3,9 @@
       <app-new-order></app-new-order>
   </div>
   <div class="page__content">
-      <!-- <app-companies-list *ngIf="isLoaded" [companies]="companies"></app-companies-list> -->
-      <!-- <div class="spinner-load load-component" *ngIf="!isLoaded"> -->
-          <!-- <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner> -->
-      <!-- </div> -->
+        <app-orders-list *ngIf="isLoaded" [orders]="orders"></app-orders-list>
+        <div class="spinner-load load-component" *ngIf="!isLoaded">
+            <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner>
+        </div>
   </div>
 </div>
