@@ -35,14 +35,28 @@ export class OrderService {
    * 
    * @param res object
    */
-  createOrder(res: any): Promise<any> {
+  createOrder(req): Promise<any> {
     return new Promise((res, rej) => {
-      this.restService.get(Endpoint.ORDER_CREATE, {})
-        .then( data => {
-          res(data);
-        }, err => {
-          rej(err);
-        })
+      this.restService.get(Endpoint.ORDER_CREATE, {
+        company_id: req.company_id || this.companyService.companyId,
+        name: req.name,
+        address: req.address,
+        longitude: req.longitude,
+        latitude: req.latitude,
+        email: req.email,
+        description: req.description,
+        status: req.status || 'NEW',
+        customer: {
+          first_name: req.customer.first_name,
+          last_name: req.customer.last_name,
+          phone: req.customer.phone,
+          address: req.customer.address
+        }
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      });
     });
   }
 
