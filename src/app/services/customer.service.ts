@@ -30,6 +30,10 @@ export class CustomerService {
     });
   }
 
+  /**
+   * 
+   * @param req is request like IOrder interface
+   */
   createCustomer(req): Promise<any> {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.CUSTOMER_CREATE, {
@@ -48,4 +52,22 @@ export class CustomerService {
       });
     });
   }
+
+  /**
+   * 
+   * @param phone is phone number of customer
+   */
+  checkCustomer(phone: string): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.CUSTOMER_PHONE, {
+        id: this.companyService.companyId,
+        phone: phone
+      }).then( data => {
+          res(data);
+        }, err => {
+          rej(err);
+        });
+    });
+  }
+
 }
