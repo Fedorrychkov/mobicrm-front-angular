@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { EventService, AuthService, CompanyService } from '../../services';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -46,9 +46,9 @@ export class NewCompanyFormComponent implements OnInit{
   }
   ngOnInit() {
     this.newCompanyForm = this.fb.group({
-      name: [this.name],
-      description: [this.description],
-      address: [this.address],
+      name: [this.name, [ Validators.required]],
+      description: [this.description, [ Validators.required]],
+      address: [this.address, [ Validators.required]],
       tags: [this.tags]
     });
   }

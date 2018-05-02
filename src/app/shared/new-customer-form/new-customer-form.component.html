@@ -1,6 +1,6 @@
 <div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
 <form [formGroup]="newCustomerForm"
-      (submit)="createCustomer(newCustomerForm.value)"
+      (submit)="createCustomer(newCustomerForm.value, newCustomerForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus>
@@ -18,6 +18,6 @@
     <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus>
   </mat-form-field>
   <div class="new-company-form__control">
-    <button type="submit" mat-raised-button>Создать клиента</button>
+    <button type="submit" mat-raised-button [disabled]="!newCustomerForm.valid">Создать клиента</button>
   </div>
 </form>

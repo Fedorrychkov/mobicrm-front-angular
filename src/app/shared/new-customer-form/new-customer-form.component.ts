@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { EventService, CustomerService } from '../../services';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -37,7 +37,8 @@ export class NewCustomerFormComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  createCustomer(req) {
+  createCustomer(req, valid: boolean) {
+    if(!valid) return;
     req.company_id = this.data.company_id;
     this.customerService.createCustomer(req)
       .then( (data) => {
@@ -53,9 +54,9 @@ export class NewCustomerFormComponent implements OnInit {
     this.newCustomerForm = this.fb.group({
       first_name: [this.first_name],
       last_name: [this.last_name],
-      phone: [this.phone],
-      email: [this.email],
-      address: [this.address],
+      phone: [this.phone, [ Validators.required]],
+      email: [this.email, [ Validators.email]],
+      address: [this.address, [ Validators.required]],
     });
   }
 
