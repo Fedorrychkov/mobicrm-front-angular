@@ -1,0 +1,50 @@
+.table {
+    display: table;         
+    width: auto;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 1rem;
+    &__row {
+        display: table-row;
+        clear: both;
+        width: 100%;
+        position: relative;
+    }
+    &__body {
+        .table__row {
+            background-color: $cards-color;
+            box-shadow: $card-shadow;
+            transition: all .3;
+            &:hover {
+                transform: scale(1.01);
+            }
+        }
+        .table__col {
+            margin: $offset-mc 0;
+        }
+    }
+    &__col {
+        // float: left; /* fix for  buggy browsers */
+        display: table-cell;
+        text-align: left;
+        padding: $offset-md;
+        &-center {
+            text-align: center;
+        }
+        &-right {
+            text-align: right;
+        }
+    }
+
+    &__controls {
+        & mat-icon {
+            margin: 0 $offset-mc;
+            cursor: pointer;
+            color: $gray-color;
+            transition: all .15s;
+            &:hover {
+                color: $dark-color;
+            }
+        }
+    }
+}
