@@ -8,6 +8,7 @@ import { OrdersComponent } from './company/orders/orders.component';
 import { CustomersComponent } from './company/customers/customers.component';
 import { EmployeesComponent } from './company/employees/employees.component';
 import { DashboardComponent } from './company/dashboard/dashboard.component';
+import { OrderItemComponent } from './company/orders/order-item/order-item.component';
 
 const routes: Routes = [
   {
@@ -18,10 +19,11 @@ const routes: Routes = [
     },
   },
   { path: ':id', component: CompanyComponent, children: [
-    { path: 'orders', component: OrdersComponent, },
+    { path: 'orders', component: OrdersComponent },
     { path: 'customers', component: CustomersComponent, },
     { path: 'employees', component: EmployeesComponent, },
     { path: 'dashboard', component: DashboardComponent, },
+    { path: 'orders/:id', component: OrderItemComponent }
   ]},
 ];
 
