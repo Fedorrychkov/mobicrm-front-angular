@@ -21,8 +21,13 @@ export interface IOrder {
     createdAt?: string;
     updatedAt?: string;
 }
-  
+
 export interface IOrders {
+    order?: IOrder;
+    customer?: ICustomer
+}
+
+export interface IResOrders {
     body?: IOrder[];
     length?: number;
 }
