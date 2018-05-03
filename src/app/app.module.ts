@@ -14,6 +14,7 @@ import {
   MatCardModule,
   MatProgressSpinnerModule,
   MatIconModule,
+  MatSelectModule,
 } from '@angular/material';
 
 const APP_MATERIAL = [
@@ -23,6 +24,7 @@ const APP_MATERIAL = [
   MatCardModule,
   MatProgressSpinnerModule,
   MatIconModule,
+  MatSelectModule,
 ];
 
 import {
@@ -76,6 +78,8 @@ import {
   NewCustomerFormComponent,
   NewEmployeeFormComponent,
   UserComponent,
+  UpdateOrderFormComponent,
+  OrderStatusIndicatorComponent,
 } from './shared';
 
 const APP_SHARED = [
@@ -86,6 +90,8 @@ const APP_SHARED = [
   NewCustomerFormComponent,
   NewEmployeeFormComponent,
   UserComponent,
+  UpdateOrderFormComponent,
+  OrderStatusIndicatorComponent,
 ];
 
 @NgModule({
@@ -96,6 +102,8 @@ const APP_SHARED = [
     ...APP_COMPONENT,
     ...APP_SHARED,
     UserComponent,
+    UpdateOrderFormComponent,
+    OrderStatusIndicatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +122,7 @@ const APP_SHARED = [
     NewOrderFormComponent,
     NewCustomerFormComponent,
     NewEmployeeFormComponent,
+    UpdateOrderFormComponent,    
   ],
   bootstrap: [AppComponent]
 })
