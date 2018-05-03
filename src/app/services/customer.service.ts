@@ -70,4 +70,23 @@ export class CustomerService {
     });
   }
 
+
+  /**
+   * get customer by company id 
+   * @param customerId customer id
+   * @param id company id
+   */
+  getCustomer(customerId: string, id?: string): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.CUSTOMER_GET, {
+        id: id || this.companyService.companyId,
+        customerId: customerId
+      }).then( data => {
+          res(data);
+        }, err => {
+          rej(err);
+        });
+    });
+  }
+
 }
