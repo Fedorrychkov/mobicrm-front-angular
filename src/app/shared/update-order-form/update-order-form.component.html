@@ -1,0 +1,13 @@
+<div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
+<form [formGroup]="updateOrderForm"
+      (submit)="updateOrder(updateOrderForm.value)"
+      class="create-form" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <mat-select [(value)]="status" formControlName="status" placeholder="Статус заказа">
+      <mat-option *ngFor="let item of statusList" [value]="item.value">{{item.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="new-company-form__control">
+    <button type="submit" mat-raised-button>Обновить данные о заказе</button>
+  </div>
+</form>
