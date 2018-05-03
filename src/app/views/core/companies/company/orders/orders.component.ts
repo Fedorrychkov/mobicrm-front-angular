@@ -28,6 +28,7 @@ export class OrdersComponent implements OnInit {
   }
   ngOnInit() {
     this.companyId = this.companyService.companyId;
+    this.eventService.broadcast('app-header-back', {link: 'companies'});
     this.getOrders();
     this.eventService.on('order-list-update').subscribe( () => {
       this.getOrders();
