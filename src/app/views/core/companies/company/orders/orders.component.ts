@@ -21,7 +21,6 @@ export class OrdersComponent implements OnInit {
   getOrders() {
     this.orderService.getOrders(this.companyId)
       .then( data => {
-        console.log(data);
         this.orders = data;
         this.isLoaded = true;
       });

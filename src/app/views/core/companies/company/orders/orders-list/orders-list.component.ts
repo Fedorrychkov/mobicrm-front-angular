@@ -1,5 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IOrders } from '../../../../../../interfaces/orders';
+import { MatDialog } from '@angular/material';
+import { UpdateOrderFormComponent } from '../../../../../../shared';
+import { IOrders, IResOrders, IOrder } from '../../../../../../interfaces/orders';
+import { CustomerService, OrderService } from '../../../../../../services';
+import { map } from 'rxjs/operator/map';
 
 @Component({
   selector: 'app-orders-list',
@@ -8,8 +12,9 @@ import { IOrders } from '../../../../../../interfaces/orders';
 })
 export class OrdersListComponent implements OnInit {
 
-  public _orders: IOrders;
+  public _orders: IResOrders;
   public isLoaded = false;
+  public orderList;
 
   // public displayedColumns = ['phone', 'name', 'created'];
 
@@ -25,11 +30,34 @@ export class OrdersListComponent implements OnInit {
    * set list of companies
    * @param list list of companies
    */
-  set orders(list: IOrders) {
+  set orders(list: IResOrders) {
     this._orders = list;
     this.isLoaded = true;
   }
-  constructor() { }
+  constructor(
+    private customerService: CustomerService,
+    private orderService: OrderService,
+    public dialog: MatDialog
+  ) { }
+  
+  updateStatus(item: IOrder) {
+    // const status = "OLD"
+    // this.orderService.updateOrder({id: id, status: status})
+    //   .then( data => {
+    //     console.log(data);
+    //     this._orders.body.forEach((item: IOrders, index) => {
+    //       if (item.order.id === id) item.order.status = status;
+    //     });
+    //   });
+    let dialogRef = this.dialog.open(UpdateOrderFormComponent, {
+      width: '600px',
+      data: {order: item}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 
   ngOnInit() {
   }
