@@ -20,13 +20,14 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
-import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
 
 const APP_MATERIAL = [
   MatButtonModule,
   MatCardModule,
   MatProgressSpinnerModule,
   MatTableModule,
+  MatIconModule,
 ]
 
 @NgModule({
