@@ -60,4 +60,21 @@ export class OrderService {
     });
   }
 
+  /**
+   * 
+   * @param req object
+   */
+  updateOrder(req): Promise<any> {
+    return new Promise((res, rej)=> {
+      this.restService.get(Endpoint.ORDER_UPDATE, {
+        company_id: this.companyService.companyId,
+        ...req,
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      });
+    });
+  }
+
 }
