@@ -101,9 +101,6 @@ const APP_SHARED = [
     AuthLayoutComponent,
     ...APP_COMPONENT,
     ...APP_SHARED,
-    UserComponent,
-    UpdateOrderFormComponent,
-    OrderStatusIndicatorComponent,
   ],
   imports: [
     BrowserModule,
