@@ -20,6 +20,14 @@ $error-color:   #ff5722;
 $warning-color: #ff9800;
 $success-color: #4caf50;
 
+$total-color-blue:      linear-gradient(45deg,#4099ff,#73b4ff);
+$total-color-green:     linear-gradient(45deg,#2ed8b6,#59e0c5);
+$total-color-yellow:    linear-gradient(45deg,#ffb64d,#ffcb80);
+$total-color-pink:      linear-gradient(45deg,#ff5370,#ff869a);
+
+$total-shadow:          0 1px 2.94px 0.06px rgba(4,26,55,.16);
+$total-shadow-hover:    0 1px 5.5px 0.06px rgba(4,26,55,.34);
+
 $navbar-color-hover:    #2879f5;
 // Standart colors
 $white-color:   #fff;

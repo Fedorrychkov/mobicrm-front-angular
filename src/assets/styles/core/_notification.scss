@@ -2,12 +2,12 @@
 
 .notification {
     &-success {
-        background-color: $success-color;
+        background: $total-color-green;
     }
     &-warning {
-        background-color: $warning-color;
+        background: $total-color-yellow;
     }
     &-error {
-        background-color: $error-color;
+        background: $total-color-pink;
     }
 }
