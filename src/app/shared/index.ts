@@ -7,3 +7,4 @@ export * from './new-employee-form/new-employee-form.component';
 export * from './update-order-form/update-order-form.component'
 export * from './user/user.component';
 export * from './order-status-indicator/order-status-indicator.component';
+export * from './dashboard';

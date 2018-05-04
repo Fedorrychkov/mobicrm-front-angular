@@ -21,6 +21,7 @@ import { NewEmployeeComponent } from './company/employees/new-employee/new-emplo
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
 import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+import { DashboardTotalComponent } from '../../../shared';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -55,6 +56,7 @@ const APP_MATERIAL = [
     NewEmployeeComponent,
     EmployeeItemComponent,
     EmployeeListComponent,
+    DashboardTotalComponent
   ]
 })
 export class CompaniesModule { }

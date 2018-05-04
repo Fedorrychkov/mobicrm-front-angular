@@ -1,0 +1,68 @@
+@import '../../../../assets/styles/common/variables';
+
+:host {
+    display: flex;
+    flex: 0 0 25%;
+    max-width: 25%;
+    margin: 0;
+    padding: 0 $offset-mc;
+    box-sizing: border-box;
+}
+
+.dashboard-total {
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    padding: $offset-sm;
+    color: $white-color;
+    box-sizing: border-box;
+    background: $total-color-blue;
+    box-shadow: $total-shadow;
+    margin-bottom: $offset-md;
+    transition: all .3s ease-in-out;
+    word-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $total-shadow-hover;
+    }
+
+    & > * {
+        width: 100%;
+    }
+
+    &__blue { background: $total-color-blue; }
+    
+    &__green { background: $total-color-green; }
+    
+    &__yellow { background: $total-color-yellow; }
+    
+    &__pink { background: $total-color-pink; }
+
+    &__title {
+        margin-bottom: $offset-sm;
+        font-size: 1.2rem;
+    }
+    &__icon {
+        margin-bottom: $offset-sm;
+        font-size: 2.5rem;
+        font-weight: bold;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        & mat-icon {
+            font-size: 2rem;
+        }
+    }
+    &__sub {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__summary {
+        &-sub {}
+    }
+}
