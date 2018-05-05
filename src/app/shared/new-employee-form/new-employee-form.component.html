@@ -1,34 +1,59 @@
 <div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
 <form [formGroup]="newEmployeeForm"
-      (submit)="createEmployee(newEmployeeForm.value)"
+      (submit)="createEmployee(newEmployeeForm.value, newEmployeeForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Логин для входа" formControlName="login" autofocus>
+    <input type="text" matInput placeholder="Логин для входа" formControlName="login" autofocus [(ngModel)]="name" required>
+    <span matSuffix aria-label="LoginSuffix" class="input-suffix">@{{this.director.login}}</span>
+    <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Пароль для входа" formControlName="password" autofocus>
+    <input [attr.type]="passwordShow ? 'text': 'password'" matInput placeholder="Пароль для входа" formControlName="password" [(ngModel)]="password" required>
+    <button mat-button matSuffix mat-icon-button aria-label="Show" (click)="showPassword()">
+      <mat-icon [ngClass]="passwordShow ? 'control--active' : ''">remove_red_eye</mat-icon>
+    </button>
+    <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <mat-select [(value)]="role" formControlName="role" placeholder="Должность">
+    <mat-select [(value)]="role" formControlName="role" placeholder="Должность" required>
       <mat-option *ngFor="let item of roleList" [value]="item.id">{{item.name}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus>
+    <input type="text" matInput placeholder="Имя" formControlName="first_name" [(ngModel)]="first_name">
+    <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" autofocus>
+    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" [(ngModel)]="last_name">
+    <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus>
+    <input type="text" matInput placeholder="Телефон сотрудника" formControlName="phone" required [(ngModel)]="phone">
+    <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Почта клиента" formControlName="email" autofocus>
+    <input type="text" matInput placeholder="Почта сотрудника" formControlName="email" required [(ngModel)]="email">
+    <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus>
+    <input type="text" matInput placeholder="Адрес сотрудника" formControlName="address" [(ngModel)]="address">
+    <button mat-button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <div class="new-company-form__control">
-    <button type="submit" mat-raised-button>Создать клиента</button>
+    <button type="submit" mat-raised-button [disabled]="!newEmployeeForm.valid">Создать сотрудника</button>
   </div>
 </form>

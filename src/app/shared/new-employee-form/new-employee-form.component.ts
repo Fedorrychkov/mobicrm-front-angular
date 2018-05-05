@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { EventService, AuthService, CompanyService, OrderService, EmployeeService } from '../../services';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { EventService, AuthService, CompanyService, OrderService, EmployeeService, DirectorService } from '../../services';
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-employee-form.component.scss']
 })
 export class NewEmployeeFormComponent implements OnInit {
-
+  public director: any;
+  public passwordShow = false;
   public newEmployeeForm: FormGroup;
   public login: string;
   public password: string;
@@ -32,6 +33,7 @@ export class NewEmployeeFormComponent implements OnInit {
     public authService: AuthService,
     public eventService: EventService,
     public employeeService: EmployeeService,
+    private directorService: DirectorService,
     public router: Router,
     public dialogRef: MatDialogRef<NewEmployeeFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -43,19 +45,19 @@ export class NewEmployeeFormComponent implements OnInit {
   onClose(): void {
     this.dialogRef.close();
   }
+  
+  showPassword() {
+    this.passwordShow = !this.passwordShow;
+  }
 
-  createEmployee(data) {
-    console.log(data);
-    // this.employeeService.createEmployee(data)
-    //   .then( res => {
-
-    //   });
-    // this.employeeService.
-    // this.orderService.createOrder(data)
-    //   .then( (data) => {
-    //     // this.router.navigate([`companies/${data.id}/dashboard`]);
-    //     // this.dialogRef.close();
-    //   });
+  createEmployee(data, valid: boolean) {
+    if(!valid) return;
+    data.login = data.login + '@' + this.director.login;
+    this.employeeService.createEmployee(data)
+      .then( res => {
+        this.eventService.broadcast('notification', {type: 'success', message: 'Новый сотрудник создан!'});
+        this.eventService.broadcast('employee-list-update');
+      });
   }
   ngOnInit() {
     this.roleList = [
@@ -63,15 +65,16 @@ export class NewEmployeeFormComponent implements OnInit {
       {id: '3', name: 'Менеджер'},
       {id: '4', name: 'Монтажник'},
     ];
+    this.director = this.directorService.director;
     this.newEmployeeForm = this.fb.group({
-      login: [this.login],
-      password: [this.password],
-      role: [this.role],
+      login: [this.login, [ Validators.required]],
+      password: [this.password, [ Validators.required]],
+      role: [this.role, [ Validators.required]],
       status: [this.status],
       first_name: [this.first_name],
       last_name: [this.last_name],
-      phone: [this.phone],
-      email: [this.email],
+      phone: [this.phone, [ Validators.required]],
+      email: [this.email, [ Validators.required, Validators.email]],
       address: [this.address],
     });
   }

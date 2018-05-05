@@ -29,4 +29,17 @@ export class EmployeeService {
         });
     });
   }
+
+  createEmployee(req): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.EMPLOYEE_CREATE, {
+        company_id: this.companyService.companyId,
+        ...req
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      })
+    })
+  }
 }

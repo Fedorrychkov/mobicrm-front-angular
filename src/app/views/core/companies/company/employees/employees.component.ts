@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EmployeeService } from '../../../../../services';
+import { EmployeeService, EventService } from '../../../../../services';
 
 @Component({
   selector: 'app-employees',
@@ -7,15 +7,25 @@ import { EmployeeService } from '../../../../../services';
   styleUrls: ['./employees.component.scss']
 })
 export class EmployeesComponent implements OnInit {
+  public employees;
+  public isLoaded = false;
 
   constructor(
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private eventService: EventService
   ) { }
-
-  ngOnInit() {
+  
+  getEmployees() {
     this.employeeService.getEmployees()
       .then(data => {
         console.log(data);
+      });
+  }
+  ngOnInit() {
+      this.eventService.broadcast('app-header-back', {link: 'companies'});
+      this.getEmployees();
+      this.eventService.on('employee-list-update').subscribe( () => {
+        this.getEmployees();
       });
   }
 
