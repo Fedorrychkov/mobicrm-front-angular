@@ -46,6 +46,11 @@ export class NewEmployeeFormComponent implements OnInit {
 
   createEmployee(data) {
     console.log(data);
+    // this.employeeService.createEmployee(data)
+    //   .then( res => {
+
+    //   });
+    // this.employeeService.
     // this.orderService.createOrder(data)
     //   .then( (data) => {
     //     // this.router.navigate([`companies/${data.id}/dashboard`]);
@@ -54,9 +59,9 @@ export class NewEmployeeFormComponent implements OnInit {
   }
   ngOnInit() {
     this.roleList = [
-      {value: '2', name: 'Ст. менеджер'},
-      {value: '3', name: 'Менеджер'},
-      {value: '4', name: 'Монтажник'},
+      {id: '2', name: 'Ст. менеджер'},
+      {id: '3', name: 'Менеджер'},
+      {id: '4', name: 'Монтажник'},
     ];
     this.newEmployeeForm = this.fb.group({
       login: [this.login],

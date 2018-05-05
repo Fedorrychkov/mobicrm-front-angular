@@ -129,6 +129,12 @@ export class RestService {
     const headers: Headers = new Headers();
 
     switch (endpoint) {
+      case Endpoint.USER_ROLES:
+        params = {
+            url: 'user/roles',
+            method: 'get'
+        };
+        break;
       case Endpoint.DIRECTOR_AUTH:
         params = {
             url: 'director/login',

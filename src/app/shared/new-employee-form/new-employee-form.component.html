@@ -10,7 +10,7 @@
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-select [(value)]="role" formControlName="role" placeholder="Должность">
-      <mat-option *ngFor="let item of roleList" [value]="item.value">{{item.name}}</mat-option>
+      <mat-option *ngFor="let item of roleList" [value]="item.id">{{item.name}}</mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field class="example-full-width">
