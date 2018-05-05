@@ -9,13 +9,13 @@
     <input type="text" matInput placeholder="Фамилия" formControlName="last_name" autofocus>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus>
+    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus required>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Почта клиента" formControlName="email" autofocus>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus>
+    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus required>
   </mat-form-field>
   <div class="new-company-form__control">
     <button type="submit" mat-raised-button [disabled]="!newCustomerForm.valid">Создать клиента</button>

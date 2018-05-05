@@ -3,13 +3,13 @@
       (submit)="createOrder(newOrderForm.value, newOrderForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Название" formControlName="name" [(ngModel)]="name" autofocus>
+    <input type="text" matInput placeholder="Название" formControlName="name" [(ngModel)]="name" autofocus required>
     <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Телефон клиента" (change)="checkCustomer(newOrderForm.value)" formControlName="customerPhone" [(ngModel)]="customerPhone">
+    <input type="text" matInput placeholder="Телефон клиента" (change)="checkCustomer(newOrderForm.value)" formControlName="customerPhone" [(ngModel)]="customerPhone" required>
     <button mat-button *ngIf="customerPhone" matSuffix mat-icon-button aria-label="Clear" (click)="customerPhone=''">
       <mat-icon>close</mat-icon>
     </button>
@@ -37,14 +37,17 @@
       </button>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" matInput placeholder="Адрес клиента" formControlName="customerAddress" [(ngModel)]="customerAddress">
+      <input type="text" [attr.disabled]="isNewCustomer ? 'null': ''" (change)="copyAddress()" matInput placeholder="Адрес клиента" formControlName="customerAddress" [(ngModel)]="customerAddress" required>
+      <button mat-button matSuffix mat-icon-button aria-label="Copy" (click)="copyAddress()">
+        <mat-icon>content_copy</mat-icon>
+      </button>
       <button mat-button *ngIf="customerAddress" matSuffix mat-icon-button aria-label="Clear" (click)="customerAddress=''">
         <mat-icon>close</mat-icon>
       </button>
     </mat-form-field>
   </div>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Адрес" formControlName="address" [(ngModel)]="address" autofocus>
+    <input type="text" matInput placeholder="Адрес" formControlName="address" [(ngModel)]="address" autofocus required>
     <button mat-button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
       <mat-icon>close</mat-icon>
     </button>

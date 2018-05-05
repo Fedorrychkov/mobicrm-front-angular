@@ -1,9 +1,9 @@
 <div class="popup__close"><i class="material-icons" (click)="onClose()">close</i></div>
 <form [formGroup]="newCompanyForm"
-      (submit)="createCompany(newCompanyForm.value)"
+      (submit)="createCompany(newCompanyForm.value, newCompanyForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Название компании" formControlName="name" autofocus>
+    <input type="text" matInput placeholder="Название компании" formControlName="name" autofocus required>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Адрес компании" formControlName="address">
@@ -13,6 +13,6 @@
         matAutosizeMaxRows="5"></textarea>
   </mat-form-field>
   <div class="new-company-form__control">
-    <button type="submit" mat-raised-button>Создать новую компанию</button>
+    <button type="submit" mat-raised-button [disabled]="!newCompanyForm.valid">Создать новую компанию</button>
   </div>
 </form>

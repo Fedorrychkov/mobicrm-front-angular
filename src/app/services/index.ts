@@ -8,3 +8,4 @@ export * from './customer.service';
 export * from './employee.service';
 export * from './director.service';
 export * from './auth.guard';
+export * from './user.service';

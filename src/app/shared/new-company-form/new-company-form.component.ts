@@ -36,7 +36,8 @@ export class NewCompanyFormComponent implements OnInit{
     this.dialogRef.close();
   }
 
-  createCompany(data) {
+  createCompany(data, valid: boolean) {
+    if (!valid) return;
     console.log(data);
     this.companyService.createCompany(data)
       .then( (data) => {

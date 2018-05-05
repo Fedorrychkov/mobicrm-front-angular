@@ -75,6 +75,10 @@ export class NewOrderFormComponent implements OnInit{
       });
   }
   
+  copyAddress() {
+    this.address = this.customerAddress;
+  }
+
   checkCustomer(req) {
     if (!this.customerPhone) {
       this.removeCustomerFields();
@@ -126,12 +130,12 @@ export class NewOrderFormComponent implements OnInit{
   ngOnInit() {
     this.newOrderForm = this.fb.group({
       name: [this.name, [ Validators.required]],
-      description: [this.description, [ Validators.required]],
+      description: [this.description],
       address: [this.address, [ Validators.required]],
       customerPhone: [this.customerPhone, [ Validators.required]],
-      customerFName: [this.customerFName, [ Validators.required]],
-      customerLName: [this.customerLName, [ Validators.required]],
-      customerEmail: [this.customerEmail, [ Validators.required]],
+      customerFName: [this.customerFName],
+      customerLName: [this.customerLName],
+      customerEmail: [this.customerEmail, [ Validators.email]],
       customerAddress: [this.customerAddress, [ Validators.required]]
     });
   }
