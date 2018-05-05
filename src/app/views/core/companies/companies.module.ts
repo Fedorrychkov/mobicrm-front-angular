@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+import { AmChartsModule } from "@amcharts/amcharts3-angular";
 
 import { СompaniesComponent } from './companies.component';
 import { СompaniesRoutingModule } from './companies.routing';
@@ -20,7 +22,6 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
-import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
 import { DashboardTotalComponent } from '../../../shared';
 
 const APP_MATERIAL = [
@@ -36,6 +37,7 @@ const APP_MATERIAL = [
     СompaniesRoutingModule,
     CommonModule,
     ReactiveFormsModule,
+    AmChartsModule,
     ...APP_MATERIAL
   ],
   declarations: [ 

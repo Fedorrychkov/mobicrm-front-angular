@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  
+  private chart: AmChart;
+ 
   public totalList: any[];
+ 
+  constructor(private AmCharts: AmChartsService) {}
 
-  constructor() { }
+
+  ngAfterViewInit() {
+    this.chart = this.AmCharts.makeChart("chartdiv", {
+      "type": "serial",
+      "theme": "light",
+      "dataProvider": []
+    });
+  }
+ 
+  ngOnDestroy() {
+    if (this.chart) {
+      this.AmCharts.destroyChart(this.chart);
+    }
+  }
 
   ngOnInit() {
     this.totalList = [
