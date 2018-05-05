@@ -56,6 +56,7 @@ export class NewEmployeeFormComponent implements OnInit {
     this.employeeService.createEmployee(data)
       .then( res => {
         this.eventService.broadcast('notification', {type: 'success', message: 'Новый сотрудник создан!'});
+        this.dialogRef.close();
         this.eventService.broadcast('employee-list-update');
       });
   }
