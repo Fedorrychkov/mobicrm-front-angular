@@ -28,9 +28,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(login, password)
       .then((data) => {
         this.isLoading = false;
-        if (data.status !== 200) {
-          this.errorMessage = data.body.textError;
-          this.eventService.broadcast('notification', {type: 'error', message: data.body.textError});
+      }).catch( err => {
+        if (err.status === 400) {
+          this.errorMessage = 'Логин или пароль не верны!';
+          this.eventService.broadcast('notification', {type: 'error', message: this.errorMessage});
         }
       });
   }

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Http,
          Headers,
          Response,
@@ -27,7 +28,8 @@ export class RestService {
 
   constructor(
     public http: Http,
-    public storageService: StorageService
+    public storageService: StorageService,
+    private router: Router
   ) {
     this.apiUrl = environment.apiUrl;
   }
@@ -65,8 +67,8 @@ export class RestService {
           }
         }, (err) => {
             if (err && err.status === 401 && endpoint != Endpoint.DIRECTOR_AUTH) {
-                this.storageService.remove('mobicrm.auth_token');
-                console.log('remove token');
+                this.storageService.clear();
+                this.router.navigate(['/auth']);
             }
           rej(err);
       });

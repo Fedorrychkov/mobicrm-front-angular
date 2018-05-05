@@ -10,6 +10,7 @@ export class AuthService {
   
   private _userId: Number;
   private _userRole: Number;
+  private _authToken: string;
   
   /**
    * get user id
@@ -32,6 +33,16 @@ export class AuthService {
    * @param role number of role
    */
   set userRole(role: Number) {this._userRole = role}
+  
+  /**
+   */
+  get authToken() {return this._authToken}
+
+  /**
+   * @param token 
+   */
+  set authToken(token: string) {this._authToken = token}
+
 
   constructor(
     public router:Router,
@@ -54,6 +65,7 @@ export class AuthService {
             this.storageService.set('mobicrm.user_role', data.body.role);
             this.userId = data.body.id;
             this.userRole = data.body.role;
+            this.authToken = data.token;
             this.router.navigate(['dashboard']);  
           }
           res(data);

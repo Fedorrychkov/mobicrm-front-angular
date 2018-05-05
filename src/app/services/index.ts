@@ -6,4 +6,5 @@ export * from './company.service';
 export * from './order.service';
 export * from './customer.service';
 export * from './employee.service';
-export * from './director.service'
+export * from './director.service';
+export * from './auth.guard';

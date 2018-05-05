@@ -36,7 +36,8 @@ import {
   OrderService,
   CustomerService,
   EmployeeService,
-  DirectorService
+  DirectorService,
+  AuthGuard
 } from './services';
 
 const APP_SERVICES = [
@@ -48,7 +49,8 @@ const APP_SERVICES = [
   OrderService,
   CustomerService,
   EmployeeService,
-  DirectorService
+  DirectorService,
+  AuthGuard
 ];
 
 import {
