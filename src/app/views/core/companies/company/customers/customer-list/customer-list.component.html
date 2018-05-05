@@ -15,7 +15,7 @@
       </thead>
       <tbody class="table__body">
         <tr class="table__row customer-table__row" *ngFor="let item of _customers.body">
-          <td class="table__col customer-table__col" [routerLink]="item.id"> {{ item.phone }} </td>
+          <td class="table__col customer-table__col table__col-link" [routerLink]="item.id"> {{ item.phone }} </td>
           <td class="table__col customer-table__col table__col-link" [routerLink]="item.id"> {{ item.first_name }} {{ item.last_name }} </td>
           <td class="table__col customer-table__col"> {{ item.updatedAt | date:"dd/MM/yyyy hh:mm" }} </td>
           <td class="table__col customer-table__col"> {{ item.address }} </td>
