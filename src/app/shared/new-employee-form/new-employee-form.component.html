@@ -9,7 +9,9 @@
     <input type="text" matInput placeholder="Пароль для входа" formControlName="password" autofocus>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Должность" formControlName="role" autofocus>
+    <mat-select [(value)]="role" formControlName="role" placeholder="Должность">
+      <mat-option *ngFor="let item of roleList" [value]="item.value">{{item.name}}</mat-option>
+    </mat-select>
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus>

@@ -25,6 +25,8 @@ export class NewEmployeeFormComponent implements OnInit {
   public isLoading = false;
   public id: string;
 
+  public roleList: any[];
+
   constructor(
     public fb: FormBuilder,
     public authService: AuthService,
@@ -51,6 +53,11 @@ export class NewEmployeeFormComponent implements OnInit {
     //   });
   }
   ngOnInit() {
+    this.roleList = [
+      {value: '2', name: 'Ст. менеджер'},
+      {value: '3', name: 'Менеджер'},
+      {value: '4', name: 'Монтажник'},
+    ];
     this.newEmployeeForm = this.fb.group({
       login: [this.login],
       password: [this.password],
