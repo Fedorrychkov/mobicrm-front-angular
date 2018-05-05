@@ -49,7 +49,7 @@ export class NewCompanyFormComponent implements OnInit{
     this.newCompanyForm = this.fb.group({
       name: [this.name, [ Validators.required]],
       description: [this.description, [ Validators.required]],
-      address: [this.address, [ Validators.required]],
+      address: [this.address],
       tags: [this.tags]
     });
   }

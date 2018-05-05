@@ -3,21 +3,36 @@
       (submit)="createCustomer(newCustomerForm.value, newCustomerForm.valid)"
       class="create-form" autocomplete="off">
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus>
+    <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus [(ngModel)]="first_name">
+    <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" autofocus>
+    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" autofocus [(ngModel)]="last_name">
+    <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus required>
+    <input type="text" matInput placeholder="Телефон клиента" formControlName="phone" autofocus required [(ngModel)]="phone">
+    <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Почта клиента" formControlName="email" autofocus>
+    <input type="text" matInput placeholder="Почта клиента" formControlName="email" autofocus [(ngModel)]="email">
+    <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus required>
+    <input type="text" matInput placeholder="Адрес клиента" formControlName="address" autofocus required [(ngModel)]="address">
+    <button mat-button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+      <mat-icon>close</mat-icon>
+    </button>
   </mat-form-field>
-  <div class="new-company-form__control">
+  <div class="new-order-form__control">
     <button type="submit" mat-raised-button [disabled]="!newCustomerForm.valid">Создать клиента</button>
   </div>
 </form>
