@@ -39,7 +39,6 @@ export class DashboardTotalComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('item ', this._total);
   }
 
 }
