@@ -19,6 +19,8 @@ export class EmployeesComponent implements OnInit {
     this.employeeService.getEmployees()
       .then(data => {
         console.log(data);
+        this.employees = data;
+        this.isLoaded = true;
       });
   }
   ngOnInit() {
