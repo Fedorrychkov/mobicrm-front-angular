@@ -12,8 +12,6 @@ export class CustomerListComponent implements OnInit {
   public _customers: ICustomers;
   public isLoaded = false;
 
-  public displayedColumns = ['phone', 'name', 'created'];
-
   @Input()
   /**
    * get list of companies
