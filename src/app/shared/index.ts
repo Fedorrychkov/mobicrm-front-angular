@@ -8,3 +8,4 @@ export * from './update-order-form/update-order-form.component'
 export * from './user/user.component';
 export * from './order-status-indicator/order-status-indicator.component';
 export * from './dashboard';
+export * from './ggmaps/ggmaps.component';

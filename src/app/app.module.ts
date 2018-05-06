@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+// import { AgmCoreModule } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -38,7 +39,7 @@ import {
   EmployeeService,
   DirectorService,
   AuthGuard,
-  UserService
+  UserService,
 } from './services';
 
 const APP_SERVICES = [
@@ -52,7 +53,7 @@ const APP_SERVICES = [
   EmployeeService,
   DirectorService,
   AuthGuard,
-  UserService
+  UserService,
 ];
 
 import {
@@ -84,6 +85,7 @@ import {
   UserComponent,
   UpdateOrderFormComponent,
   OrderStatusIndicatorComponent,
+  // GgmapsComponent,
 } from './shared';
 
 const APP_SHARED = [
@@ -96,6 +98,7 @@ const APP_SHARED = [
   UserComponent,
   UpdateOrderFormComponent,
   OrderStatusIndicatorComponent,
+  // GgmapsComponent,
 ];
 
 @NgModule({
