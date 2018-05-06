@@ -1,6 +1,7 @@
 .mbutton {
     &-control {
-        background-color: $navbar-color;
+        // background-color: $navbar-color;
+        background: $total-color-blue;
         color: $white-color !important;
     }
 }
