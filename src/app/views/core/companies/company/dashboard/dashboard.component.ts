@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
+import { OrderService, AddressMapService, GeolocationService } from '../../../../../services';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,26 +7,16 @@ import { AmChartsService, AmChart } from "@amcharts/amcharts3-angular";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  private chart: AmChart;
  
   public totalList: any[];
- 
-  constructor(private AmCharts: AmChartsService) {}
+  public coordsList: any[];
+  public addressList: any[];
 
-
-  ngAfterViewInit() {
-    this.chart = this.AmCharts.makeChart("chartdiv", {
-      "type": "serial",
-      "theme": "light",
-      "dataProvider": []
-    });
-  }
- 
-  ngOnDestroy() {
-    if (this.chart) {
-      this.AmCharts.destroyChart(this.chart);
-    }
-  }
+  constructor(
+    private orderService: OrderService,
+    private addressMapService: AddressMapService,
+    private geolocationService: GeolocationService
+  ) {}
 
   ngOnInit() {
     this.totalList = [
@@ -35,6 +25,24 @@ export class DashboardComponent implements OnInit {
       { action: 'yellow', value: '450000 ₽', title: 'Заработано всего', subTitle: 'В этом месяце', subValue: '3400 ₽', icon: 'shopping_cart' },
       { action: 'pink', value: '250000 ₽', title: 'Заработано чистыми', subTitle: 'В этом месяце', subValue: '400 ₽', icon: 'shopping_cart' },
     ];
+
+    this.orderService.getOrders()
+      .then(res => {
+        let adresses = res.body.map( item => item.order.address)
+        return adresses;
+      }).then( locations => {
+        console.log(locations);
+        locations.map(item => {
+          // this.geolocationSe nsole.log(err));
+        });
+
+        // console.log(this.coordsList);
+ 
+        // this.addressMapService.getCoordsByPlaceId(this.addresses[0].id)
+        //   .then(res => {
+        //     console.log(res);
+        //   });
+      });
   }
 
 }
