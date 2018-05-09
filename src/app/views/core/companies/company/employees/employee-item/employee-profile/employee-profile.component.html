@@ -1,3 +1,33 @@
-<p>
-  employee-profile works!
-</p>
+<div class="page-content" *ngIf="isLoaded">
+    <div class="page-content__notempty">
+      <div class="spinner-load load-component" *ngIf="!isLoaded">
+          <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner>
+      </div>
+      <section class="profile employee-profile mcard__boxshadow">
+        <div class="profile__left">
+          <div class="profile__avatar">
+            <img class="profile__avatar-image" *ngIf="!profile.avatar" src="../../../../../../../../assets/icons/user-avatar.svg" alt="">
+            <img class="profile__avatar-image" *ngIf="profile.avatar" src="profile.avatar" alt="">
+          </div>
+        </div>
+        <div class="profile__right">
+          <div class="profile__row">
+            <h3>{{profile.first_name}} {{profile.last_name}}</h3>
+          </div>
+          <div class="profile__row">
+            <p>Логин для входа: {{profile.login}}</p>
+          </div>
+          <div class="profile__row">
+            <p>Электронная почта: {{profile.email}}</p>
+          </div>
+          <div class="profile__row">
+            <p>Аккаунт создан: {{profile.createdAt | date:"dd/MM/yyyy hh:mm" }}</p>
+          </div>
+          <div class="profile__row">
+            <p>Должность: <span *ngFor="let role of roleList"> <span *ngIf="role.id === profile.role">{{ role.name }}</span> </span> </p>
+          </div>
+        </div>
+        <!-- <div class="profile__bottom"></div> -->
+      </section>
+    </div>
+  </div>
