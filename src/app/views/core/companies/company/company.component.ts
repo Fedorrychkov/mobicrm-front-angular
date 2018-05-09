@@ -46,7 +46,7 @@ export class CompanyComponent implements OnInit {
           link: `${this.id}/employees`,
           name: 'Сотрудники'
       },
-  ];
+    ];
     this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
     this.eventService.broadcast('app-header-back', {link: 'companies'});
     if (this.storageService.get('mobicrm.company_id')) this.companyService.companyId = this.id;
