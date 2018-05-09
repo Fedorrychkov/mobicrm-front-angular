@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
-import { AmChartsModule } from "@amcharts/amcharts3-angular";
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-// import { AgmCoreModule } from 'angular2-google-maps/core';
 import { AgmCoreModule } from '@agm/core';
 
 import { СompaniesComponent } from './companies.component';
@@ -25,8 +23,10 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
-import { DashboardTotalComponent, GgmapsComponent } from '../../../shared';
-import { AddressMapService } from '../../../services';
+import { DashboardTotalComponent, GgmapsComponent, ChartjsComponent, LineChartComponent } from '../../../shared';
+import { AddressMapService, GeolocationService } from '../../../services';
+import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
+import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -42,10 +42,8 @@ const APP_MATERIAL = [
     СompaniesRoutingModule,
     CommonModule,
     ReactiveFormsModule,
-    AmChartsModule,
     ...APP_MATERIAL,
     ChartsModule,
-    // // googleMapsCore,
     AgmCoreModule.forRoot({
       apiKey : 'AIzaSyDPi7juo6FysXcVc5rqXR9Sdb6g0zZZvdA',
       libraries: ['places']
@@ -53,6 +51,7 @@ const APP_MATERIAL = [
   ],
   providers: [
     AddressMapService,
+    GeolocationService,
   ],
   declarations: [ 
     СompaniesComponent,
@@ -74,6 +73,10 @@ const APP_MATERIAL = [
     EmployeeListComponent,
     DashboardTotalComponent,
     GgmapsComponent,
+    ChartjsComponent,
+    LineChartComponent,
+    EmployeeProfileComponent,
+    EmployeeOrdersComponent,
   ]
 })
 export class CompaniesModule { }
