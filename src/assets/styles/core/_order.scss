@@ -1,0 +1,20 @@
+.order {
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    &__row {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: $offset-sm;
+    }
+    &__item {
+        max-width: 200px;
+        width: 100%;
+        margin-right: $offset-md;
+    }
+    &__left, &__right {
+        width: 45%;
+    }
+}

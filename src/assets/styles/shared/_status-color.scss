@@ -1,0 +1,13 @@
+.status-color {
+    &__new, &__NEW {
+        &-bg {
+            background-color: $new-status-color !important;
+            & mat-icon {
+                color: $error-color;
+            }
+        }
+        &-font {
+            color: $error-color;
+        }
+    }
+}
