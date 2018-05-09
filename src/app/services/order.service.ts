@@ -77,4 +77,21 @@ export class OrderService {
     });
   }
 
+  /**
+   * get one order by id
+   * @param id orderId
+   */
+  getOrder(id: string): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.ORDER_GET, {
+        id: this.companyService.companyId,
+        orderId: id
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      })
+    })
+  }
+
 }
