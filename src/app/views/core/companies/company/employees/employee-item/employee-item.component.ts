@@ -8,8 +8,10 @@ import { EventService, EmployeeService, CompanyService } from '../../../../../..
   styleUrls: ['./employee-item.component.scss']
 })
 export class EmployeeItemComponent implements OnInit {
-  private headerNav: any[];
+  private navigation: any[];
   private id: string;
+  
+  public isLoaded = false;
 
   constructor(
     private router: Router,
@@ -19,15 +21,30 @@ export class EmployeeItemComponent implements OnInit {
     private companyService: CompanyService
   ) { }
 
+  getEmployee() {
+    this.employeeService.getEmployee(this.id)
+      .then( res => {
+        this.isLoaded = true;
+      });
+  }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.id = params['id'];
+      this.employeeService.employeeId = params['id'];
     });
-    this.employeeService.getEmployee(this.id)
-      .then( res => {
-        console.log(res);
-      });
+    // this.getEmployee();
     this.eventService.broadcast('app-header-back', {link: `companies/${this.companyService.companyId}/employees`});
+    this.navigation = [
+      {
+          link: `profile`,
+          name: 'Профиль'
+      },
+      {
+          link: `orders`,
+          name: 'Созданные заказы'
+      },
+    ];
   }
 
 }
