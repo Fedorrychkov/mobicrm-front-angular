@@ -3,7 +3,7 @@
   <div class="page-content__notempty companies-list__notempty" *ngIf="_companies.body.length">
     <h2>Все компании</h2>
     <ul class="companies-list__list">
-      <mat-card *ngFor="let item of _companies.body" [routerLink]="item.id" class="companies-list__item">
+      <mat-card *ngFor="let item of _companies.body" [routerLink]="[item.id, 'dashboard']" class="companies-list__item">
         <mat-card-header>
           <mat-card-title class="companies-list__item-name">{{item.name}}</mat-card-title>
           <mat-card-subtitle>{{tags}}</mat-card-subtitle>
