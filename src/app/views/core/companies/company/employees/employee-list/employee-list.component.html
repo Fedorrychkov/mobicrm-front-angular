@@ -8,7 +8,7 @@
         <tr class="table__row customer-table__row">
           <th class="table__col customer-table__col">Телефон</th>
           <th class="table__col customer-table__col">Имя</th>
-          <th class="table__col customer-table__col">Последняя активность</th>
+          <th class="table__col customer-table__col">Дата регистрации</th>
           <th class="table__col customer-table__col">Адрес</th>
           <th class="table__col customer-table__col"></th>
         </tr>
@@ -17,7 +17,7 @@
         <tr class="table__row customer-table__row" *ngFor="let item of _employees.body">
           <td class="table__col customer-table__col table__col-link" [routerLink]="item.id"> {{ item.phone }} </td>
           <td class="table__col customer-table__col table__col-link" [routerLink]="item.id"> {{ item.first_name }} {{ item.last_name }} </td>
-          <td class="table__col customer-table__col"> {{ item.updatedAt | date:"dd/MM/yyyy hh:mm" }} </td>
+          <td class="table__col customer-table__col"> {{ item.createdAt | date:"dd/MM/yyyy hh:mm" }} </td>
           <td class="table__col customer-table__col"> <div *ngFor="let role of roleList"> <span *ngIf="role.id === item.role">{{ role.name }}</span> </div></td>
           <td class="table__col customer-table__col">
             <div class="table__controls table__col-right">
