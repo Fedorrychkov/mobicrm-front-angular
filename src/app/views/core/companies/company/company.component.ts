@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService, CompanyService } from '../../../../services';
+import { EventService, CompanyService, StorageService } from '../../../../services';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,10 +12,11 @@ export class CompanyComponent implements OnInit {
   private id: string;
 
   constructor(
-    public router: Router,
-    public route: ActivatedRoute,
-    public eventService: EventService,
-    private companyService: CompanyService
+    private router: Router,
+    private route: ActivatedRoute,
+    private eventService: EventService,
+    private companyService: CompanyService,
+    private storageService: StorageService
   ) { }
 
   ngOnInit() {
@@ -48,7 +49,7 @@ export class CompanyComponent implements OnInit {
   ];
     this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
     this.eventService.broadcast('app-header-back', {link: 'companies'});
-    this.router.navigate([`companies/${this.id}/dashboard`]);
+    if (this.storageService.get('mobicrm.company_id')) this.companyService.companyId = this.id;
   }
 
 }
