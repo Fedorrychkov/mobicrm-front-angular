@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule } from '@angular/material';
+import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule, MatTabsModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AgmCoreModule } from '@agm/core';
 
@@ -27,6 +27,7 @@ import { DashboardTotalComponent, GgmapsComponent, ChartjsComponent, LineChartCo
 import { AddressMapService, GeolocationService } from '../../../services';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
+import { NavigationComponent } from '../../../components';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -34,6 +35,7 @@ const APP_MATERIAL = [
   MatProgressSpinnerModule,
   MatTableModule,
   MatIconModule,
+  MatTabsModule,
 ]
 
 
@@ -77,6 +79,7 @@ const APP_MATERIAL = [
     LineChartComponent,
     EmployeeProfileComponent,
     EmployeeOrdersComponent,
+    NavigationComponent
   ]
 })
 export class CompaniesModule { }
