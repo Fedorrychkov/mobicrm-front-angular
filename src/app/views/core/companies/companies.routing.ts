@@ -12,6 +12,7 @@ import { OrderItemComponent } from './company/orders/order-item/order-item.compo
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
+import { CustomerItemComponent } from './company/customers/customer-item/customer-item.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       {path: 'orders', component: EmployeeOrdersComponent },
     ]},
     { path: 'dashboard', component: DashboardComponent, },
-    { path: 'orders/:id', component: OrderItemComponent }
+    { path: 'orders/:id', component: OrderItemComponent },
+    { path: 'customers/:id', component: CustomerItemComponent }
   ]},
 ];
 
