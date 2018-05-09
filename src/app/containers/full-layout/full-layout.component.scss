@@ -8,6 +8,7 @@
 
 .main {
     height: 100vh;
+    overflow-x: hidden;
     
     .container-fluid {
         padding: $offset-sm;
