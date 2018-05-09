@@ -30,6 +30,10 @@ export class EmployeeService {
     });
   }
 
+  /**
+   * create new employee
+   * @param req look at employee interface
+   */
   createEmployee(req): Promise<any> {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.EMPLOYEE_CREATE, {
@@ -43,6 +47,10 @@ export class EmployeeService {
     })
   }
 
+  /**
+   * get one employee by id
+   * @param id employeeId
+   */
   getEmployee(id: string): Promise<any> {
     return new Promise((res, rej) => {
       this.restService.get(Endpoint.EMPLOYEE_GET, {
