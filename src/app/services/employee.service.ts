@@ -42,4 +42,17 @@ export class EmployeeService {
       })
     })
   }
+
+  getEmployee(id: string): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.EMPLOYEE_GET, {
+        id: this.companyService.companyId,
+        employeeId: id
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      })
+    })
+  }
 }
