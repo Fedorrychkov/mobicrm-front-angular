@@ -21,18 +21,6 @@ export class СompaniesComponent implements OnInit {
                 link: '/',
                 name: 'Все компании'
             },
-            // {
-            //     link: '/customers',
-            //     name: 'Клиенты'
-            // },
-            // {
-            //     link: '/employees',
-            //     name: 'Сотрудники'
-            // },
-            // {
-            //     link: '/orders',
-            //     name: 'Все заказы'
-            // }
         ];
         this.companyService.getCompanies()
             .then( (data) => {
