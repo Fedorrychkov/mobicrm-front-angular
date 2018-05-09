@@ -7,6 +7,20 @@ import { StorageService } from './storage.service';
 
 @Injectable()
 export class EmployeeService {
+  private _employeeId: string;
+
+  /**
+   * Get emplployee id from variable or storageService
+   */
+  get employeeId() {return this._employeeId || this.storageService.get('mobicrm.employee_id')}
+
+  /**
+   * Set emplployee id in variable or and storage service
+   */
+  set employeeId(id: string) {
+    this.storageService.set('mobicrm.employee_id', id);
+    this._employeeId = id;
+  }
 
   constructor(
     private router: Router,
