@@ -9,8 +9,18 @@ import { StorageService }  from './storage.service';
 export class CompanyService {
   private _companyId: string;
 
-  get companyId() {return this._companyId}
-  set companyId(id: string) {this._companyId = id}
+  /**
+   * Get company id from variable or storageService
+   */
+  get companyId() {return this._companyId || this.storageService.get('mobicrm.company_id')}
+
+  /**
+   * Set company id in variable or and storage service
+   */
+  set companyId(id: string) {
+    this.storageService.set('mobicrm.company_id', id);
+    this._companyId = id;
+  }
 
   constructor(
     public router:Router,
