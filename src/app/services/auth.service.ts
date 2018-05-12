@@ -45,9 +45,9 @@ export class AuthService {
 
 
   constructor(
-    public router:Router,
-    public restService:RestService,
-    public storageService:StorageService
+    private router:Router,
+    private restService:RestService,
+    private storageService:StorageService
   ) { }
   
   /**
@@ -75,6 +75,21 @@ export class AuthService {
     })
   }
 
+  /**
+   * signup method for director
+   * @param req director fields request
+   */
+  signup(req): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.DIRECTOR_SIGNUP, {
+        ...req
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      })
+    })
+  }
   /**
    * logout method, cleare localstorage and navigate to /auth
    */
