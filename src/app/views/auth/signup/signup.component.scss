@@ -1,0 +1,15 @@
+@import '../../../../assets/styles/common/variables';
+
+.signup-form {
+    max-width: $navbar-width*1.5;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    
+    &__control {
+        color: $navbar-color;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}

@@ -1,3 +1,47 @@
-<p>
-  signup works!
-</p>
+<form [formGroup]="signupForm"
+      (submit)="signup(signupForm.value, signupForm.valid)"
+      class="signup-form" autocomplete="off">
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus [(ngModel)]="first_name">
+    <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" [(ngModel)]="last_name">
+    <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Логин для входа" autocomplete="off" formControlName="login" [(ngModel)]="login" required>
+    <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="login=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input [attr.type]="passwordShow ? 'text': 'password'" matInput placeholder="Пароль для входа" autocomplete="off" formControlName="password" [(ngModel)]="password" required>
+    <button mat-button matSuffix mat-icon-button aria-label="Show" (click)="showPassword()">
+      <mat-icon [ngClass]="passwordShow ? 'control--active--white' : 'control--deactive--gray'">remove_red_eye</mat-icon>
+    </button>
+    <button mat-button *ngIf="password" matSuffix mat-icon-button aria-label="Clear" (click)="password=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Электронная почта" formControlName="email" required [(ngModel)]="email">
+    <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Телефон" formControlName="phone" [(ngModel)]="phone">
+    <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <div class="signup-form__control">
+    <button type="submit" mat-raised-button [disabled]="!signupForm.valid">Создать сотрудника</button>
+    <a routerLink="../" class="link link__white">Есть аккаунт?<br/>Входи!</a>
+  </div>
+</form>
