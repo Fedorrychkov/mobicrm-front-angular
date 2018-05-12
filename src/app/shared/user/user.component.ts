@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { DirectorService } from '../../services';
+import { DirectorService, AuthService, UserService } from '../../services';
 import { IUser } from '../../interfaces/user';
 
 @Component({
@@ -12,16 +12,22 @@ export class UserComponent implements OnInit {
   public isLoaded = false;
 
   constructor(
-    private directorService: DirectorService
+    private directorService: DirectorService,
+    private authService: AuthService,
+    private userService: UserService,
   ) { }
   
   getUser() {
-    this.directorService.getDirector()
+    this.userService.getUser()
       .then( user => {
         this.user = user.body;
         console.log(user);
         this.isLoaded = true;
       });
+  }
+  
+  logout() {
+    this.authService.logout();
   }
 
   ngOnInit() {
