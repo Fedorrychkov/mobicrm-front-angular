@@ -9,3 +9,11 @@
 .control--active {
     color: $navbar-color;
 }
+
+.control--deactive--gray {
+    color: $gray-color;
+}
+
+.control--active--white {
+    color: $white-color;
+}

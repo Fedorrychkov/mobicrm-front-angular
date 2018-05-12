@@ -1,0 +1,8 @@
+.link {
+    display: block;
+    text-decoration: none;
+
+    &__white {
+        color: $white-color;
+    }
+}
