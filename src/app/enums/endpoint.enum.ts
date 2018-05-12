@@ -1,6 +1,7 @@
 export enum Endpoint {
     USER_AUTH,
     USER_ROLES,
+    USER_INFO,
     DIRECTOR_AUTH,
     DIRECTOR_SIGNUP,
     DIRECTOR_UPDATE,

@@ -141,6 +141,12 @@ export class RestService {
             method: 'post'
         };
         break;
+      case Endpoint.USER_INFO:
+          params = {
+              url: 'user',
+              method: 'get'
+          };
+          break;
       case Endpoint.DIRECTOR_AUTH:
         params = {
             url: 'director/login',
