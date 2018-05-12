@@ -2,8 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule, MatButtonModule, MatIconModule } from '@angular/material';
 
 import { AuthComponent } from './auth.component';
 import { AuthRoutingModule } from './auth.routing';
@@ -16,7 +15,8 @@ import { SignupComponent } from './signup/signup.component';
     AuthRoutingModule,
     CommonModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ],
   declarations: [ 
     AuthComponent,
