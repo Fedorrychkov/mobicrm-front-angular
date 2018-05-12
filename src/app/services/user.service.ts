@@ -8,6 +8,11 @@ import { StorageService } from './storage.service';
 @Injectable()
 export class UserService {
 
+  public director = 1;
+  public seniorManager = 2;
+  public manager = 3;
+  public worker = 4;
+
   constructor(
     private router: Router,
     private restService: RestService,

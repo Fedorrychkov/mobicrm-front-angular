@@ -38,7 +38,6 @@ export class NewCompanyFormComponent implements OnInit{
 
   createCompany(data, valid: boolean) {
     if (!valid) return;
-    console.log(data);
     this.companyService.createCompany(data)
       .then( (data) => {
         this.router.navigate([`companies/${data.id}/dashboard`]);

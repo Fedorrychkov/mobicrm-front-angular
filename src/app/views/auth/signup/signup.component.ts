@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService, AuthService } from '../../../services';
+import { EventService, AuthService, UserService } from '../../../services';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -24,7 +24,8 @@ export class SignupComponent implements OnInit {
     private router: Router,
     private fb: FormBuilder,
     private authService: AuthService,
-    private eventService: EventService
+    private eventService: EventService,
+    private userService: UserService,
   ) { }
 
   showPassword() {
@@ -35,6 +36,7 @@ export class SignupComponent implements OnInit {
     if (!valid) return;
     data.login = data.login.toLowerCase();
     data.email = data.email.toLowerCase();
+    data.role = this.userService.director;
     this.authService.signup(data)
       .then( res => {
         console.log(res);
