@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { EventService, AuthService, CompanyService, OrderService, EmployeeService, DirectorService } from '../../services';
+import { EventService, AuthService, CompanyService, OrderService, EmployeeService, DirectorService, UserService } from '../../services';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./new-employee-form.component.scss']
 })
 export class NewEmployeeFormComponent implements OnInit {
-  public director: any;
+  public user: any;
   public passwordShow = false;
   public newEmployeeForm: FormGroup;
   public login: string;
@@ -33,7 +33,7 @@ export class NewEmployeeFormComponent implements OnInit {
     public authService: AuthService,
     public eventService: EventService,
     public employeeService: EmployeeService,
-    private directorService: DirectorService,
+    private userService: UserService,
     public router: Router,
     public dialogRef: MatDialogRef<NewEmployeeFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
@@ -52,7 +52,7 @@ export class NewEmployeeFormComponent implements OnInit {
 
   createEmployee(data, valid: boolean) {
     if(!valid) return;
-    data.login = data.login + '@' + this.director.login;
+    data.login = data.login + '@' + this.user.login;
     this.employeeService.createEmployee(data)
       .then( res => {
         this.eventService.broadcast('notification', {type: 'success', message: 'Новый сотрудник создан!'});
@@ -66,7 +66,7 @@ export class NewEmployeeFormComponent implements OnInit {
       {id: '3', name: 'Менеджер'},
       {id: '4', name: 'Монтажник'},
     ];
-    this.director = this.directorService.director;
+    this.user = this.userService.user;
     this.newEmployeeForm = this.fb.group({
       login: [this.login, [ Validators.required]],
       password: [this.password, [ Validators.required]],
