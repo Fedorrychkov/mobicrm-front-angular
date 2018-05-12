@@ -1,4 +1,4 @@
-<div class="user">
+<div class="user" [matMenuTriggerFor]="userTab">
   <div class="user__name" *ngIf="isLoaded">
     <div> {{ user.first_name }} {{ user.last_name }} </div>
     <div class="user__login">@{{ user.login }}</div>
@@ -8,3 +8,7 @@
     <img class="user__avatar-image" *ngIf="user.avatar" src="user.avatar" alt="">
   </div>
 </div>
+<mat-menu #userTab="matMenu">
+  <!-- <button mat-menu-item routerLink="settings">Настройки</button> -->
+  <button mat-menu-item (click)="logout()">Выход</button>
+</mat-menu>
