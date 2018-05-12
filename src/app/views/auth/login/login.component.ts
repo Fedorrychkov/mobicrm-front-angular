@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   ) { }
   
   auth(data) {
+    data.login = data.login.toLowerCase();
     this.isLoading = true;
     this.errorMessage = '';
     const login = data.login;
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(login, password)
       .then((data) => {
         this.isLoading = false;
+        this.eventService.broadcast('notification', {type: 'success', message: 'Вы успешно авторизовались!'});
       }).catch( err => {
         if (err.status === 400) {
           this.errorMessage = 'Логин или пароль не верны!';
