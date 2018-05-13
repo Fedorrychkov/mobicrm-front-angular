@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-// import { AgmCoreModule } from '@agm/core';
+import { AgmCoreModule, MapsAPILoader } from '@agm/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
@@ -16,6 +16,7 @@ import {
   MatProgressSpinnerModule,
   MatIconModule,
   MatSelectModule,
+  MatMenuModule,
 } from '@angular/material';
 
 const APP_MATERIAL = [
@@ -26,6 +27,7 @@ const APP_MATERIAL = [
   MatProgressSpinnerModule,
   MatIconModule,
   MatSelectModule,
+  MatMenuModule,
 ];
 
 import {
@@ -40,6 +42,8 @@ import {
   DirectorService,
   AuthGuard,
   UserService,
+  GeolocationService,
+  AddressMapService,
 } from './services';
 
 const APP_SERVICES = [
@@ -54,6 +58,8 @@ const APP_SERVICES = [
   DirectorService,
   AuthGuard,
   UserService,
+  GeolocationService,
+  AddressMapService,
 ];
 
 import {
@@ -65,14 +71,16 @@ import {
   AppHeaderComponent,
   AppAsideComponent,
   AppSidebarComponent,
-  AppFooterComponent
+  AppFooterComponent,
+  // NavigationComponent
 } from './components';
 
 const APP_COMPONENT = [
   AppHeaderComponent,
   AppSidebarComponent,
   AppAsideComponent,
-  AppFooterComponent
+  AppFooterComponent,
+  // NavigationComponent
 ];
 
 import { 
@@ -85,7 +93,6 @@ import {
   UserComponent,
   UpdateOrderFormComponent,
   OrderStatusIndicatorComponent,
-  // GgmapsComponent,
 } from './shared';
 
 const APP_SHARED = [
@@ -98,7 +105,6 @@ const APP_SHARED = [
   UserComponent,
   UpdateOrderFormComponent,
   OrderStatusIndicatorComponent,
-  // GgmapsComponent,
 ];
 
 @NgModule({
@@ -116,10 +122,14 @@ const APP_SHARED = [
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
+    AgmCoreModule.forRoot({
+      apiKey : 'AIzaSyDPi7juo6FysXcVc5rqXR9Sdb6g0zZZvdA',
+      libraries: ['places']
+    }),
     ...APP_MATERIAL
   ],
   providers: [
-    ...APP_SERVICES
+    ...APP_SERVICES,
   ],
   entryComponents: [
     NewCompanyFormComponent,

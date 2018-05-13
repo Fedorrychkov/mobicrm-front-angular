@@ -10,3 +10,4 @@ export * from './director.service';
 export * from './auth.guard';
 export * from './user.service';
 export * from './address-map.service';
+export * from './geolocation.service';
