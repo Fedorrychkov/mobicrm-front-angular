@@ -57,7 +57,7 @@ export class AuthService {
    */
   login(login: String, password: String): Promise<any> {
     return new Promise((res, rej) => {
-      this.restService.get(Endpoint.DIRECTOR_AUTH, { login: login, password: password})
+      this.restService.get(Endpoint.USER_AUTH, { login: login, password: password})
         .then( (data) => {
           if (data.token) {
             this.storageService.set('mobicrm.auth_token', data.token);
