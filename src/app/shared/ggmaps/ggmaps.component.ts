@@ -13,9 +13,19 @@ export class GgmapsComponent implements OnInit {
 
   @Input()
   place: string;
-  
-  public lat: number = -32.9477132;
-  public lng: number = -60.630465800000025;
+
+  @Input()
+  set coords(item: any) {
+    this.lat = item.latitude;
+    this.lng = item.longitude;
+  }
+
+  get coords() {
+    return this.lat, this.lng
+  }
+
+  public lat: number = 55.7819393;
+  public lng: number = 49.18588840000007;
   public addresses = [];
   constructor(
     private mapsAPILoader: MapsAPILoader,
@@ -25,32 +35,32 @@ export class GgmapsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.mapsAPILoader.load().then(() => {
-      const service = new google.maps.places.AutocompleteService();
-      let key = 'Россия, г. Казань, ул. Чистопольская д. 39';
-      service.getPlacePredictions({input: key}, (locations) => {
+    // this.mapsAPILoader.load().then(() => {
+    //   const service = new google.maps.places.AutocompleteService();
+    //   let key = 'Россия, г. Казань, ул. Чистопольская д. 39';
+    //   service.getPlacePredictions({input: key}, (locations) => {
 
-        this.addresses = [];
+    //     this.addresses = [];
 
-        if (!locations) {
-          return this.addresses;
-        }
-        for (const location of locations) {
-          this.addresses.push({
-            name: location['description'],
-            id: location['place_id']
-          });
-        }
-        console.log(location, this.addresses);
-        /**
-         * Метод возвращает координаты места по place_id
-         */
-        this.addressMapService.getCoordsByPlaceId(this.addresses[0].id)
-          .then(res => {
-            console.log(res);
-          });
-      });
-    });
+    //     if (!locations) {
+    //       return this.addresses;
+    //     }
+    //     for (const location of locations) {
+    //       this.addresses.push({
+    //         name: location['description'],
+    //         id: location['place_id']
+    //       });
+    //     }
+    //     console.log(location, this.addresses);
+    //     /**
+    //      * Метод возвращает координаты места по place_id
+    //      */
+    //     this.addressMapService.getCoordsByPlaceId(this.addresses[0].id)
+    //       .then(res => {
+    //         console.log(res);
+    //       });
+    //   });
+    // });
   }
 
 }

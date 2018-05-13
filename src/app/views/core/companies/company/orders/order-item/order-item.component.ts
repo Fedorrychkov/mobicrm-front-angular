@@ -12,6 +12,10 @@ export class OrderItemComponent implements OnInit {
   private id: string;
   public isLoaded = false;
   public order: IOrder;
+  public orderCoords: any = {
+    latitude: 0,
+    longitude: 0
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -25,7 +29,9 @@ export class OrderItemComponent implements OnInit {
       .then( res => {
         this.order = res.body;
         this.isLoaded = true;
-        console.log(res);
+        let order: IOrder = res.body.order
+        this.orderCoords.longitude = parseFloat(order.longitude);
+        this.orderCoords.latitude = parseFloat(order.latitude);
       });
   }
 
