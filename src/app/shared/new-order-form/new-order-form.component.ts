@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { EventService, AuthService, CompanyService, OrderService, CustomerService } from '../../services';
+import { EventService, AuthService, CompanyService, OrderService, CustomerService, GeolocationService, AddressMapService } from '../../services';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ICustomer } from '../../interfaces/customer';
@@ -26,6 +26,8 @@ export class NewOrderFormComponent implements OnInit{
   public id: string;
   public fillCustomer = false;
   public isNewCustomer = false;
+  public latitude: string;
+  public longitude: string;
 
   public customer: ICustomer = {
     id: '',
@@ -49,7 +51,9 @@ export class NewOrderFormComponent implements OnInit{
     private eventService: EventService,
     private orderService: OrderService,
     private customerService: CustomerService,
-    public router: Router,
+    private router: Router,
+    private geolocationService: GeolocationService,
+    private addressMapService: AddressMapService,
     public dialogRef: MatDialogRef<NewOrderFormComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) { }
 
@@ -65,6 +69,8 @@ export class NewOrderFormComponent implements OnInit{
     if(!valid) return;
     req.company_id = this.data.company_id;
     const newReq = this.fillCreateRequest(req);
+    newReq.longitude = this.longitude;
+    newReq.latitude = this.latitude;
     this.orderService.createOrder(newReq)
       .then( (data) => {
         data.status === 400 ? 
@@ -75,6 +81,20 @@ export class NewOrderFormComponent implements OnInit{
       });
   }
   
+  getAddresses(event) {
+    console.log(this.address);
+    this.geolocationService.getCoordsByString(this.address)
+      .then( res => {
+        console.log(res);
+          this.addressMapService.getCoordsByPlaceId(res[0].id)
+            .then( (coords: any) => {
+              console.log(coords);
+              this.longitude = coords.lng
+              this.latitude = coords.lat;
+            });
+      });
+  }
+
   copyAddress() {
     this.address = this.customerAddress;
   }
