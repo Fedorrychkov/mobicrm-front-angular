@@ -23,7 +23,7 @@
           <td class="table__col customer-table__col"> <div *ngFor="let role of roleList"> <span *ngIf="role.id === item.role">{{ role.name }}</span> </div></td>
           <td class="table__col customer-table__col">
             <div class="table__controls table__col-right">
-              <mat-icon>create</mat-icon>
+              <mat-icon [routerLink]="[item.id, 'settings']">create</mat-icon>
             </div>
           </td>
         </tr>

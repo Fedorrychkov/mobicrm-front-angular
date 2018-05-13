@@ -13,6 +13,7 @@ import { EmployeeItemComponent } from './company/employees/employee-item/employe
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
 import { CustomerItemComponent } from './company/customers/customer-item/customer-item.component';
+import { EmployeeSettingsComponent } from './company/employees/employee-item/employee-settings/employee-settings.component';
 
 const routes: Routes = [
   {
@@ -29,6 +30,7 @@ const routes: Routes = [
     { path: 'employees/:id', component: EmployeeItemComponent, children: [
       {path: 'profile', component: EmployeeProfileComponent },
       {path: 'orders', component: EmployeeOrdersComponent },
+      {path: 'settings', component: EmployeeSettingsComponent },
     ]},
     { path: 'dashboard', component: DashboardComponent, },
     { path: 'orders/:id', component: OrderItemComponent },

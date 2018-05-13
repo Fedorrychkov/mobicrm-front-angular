@@ -27,6 +27,7 @@ import { DashboardTotalComponent, GgmapsComponent, ChartjsComponent, LineChartCo
 import { AddressMapService, GeolocationService } from '../../../services';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
+import { EmployeeSettingsComponent } from './company/employees/employee-item/employee-settings/employee-settings.component';
 import { NavigationComponent } from '../../../components';
 
 const APP_MATERIAL = [
@@ -79,7 +80,8 @@ const APP_MATERIAL = [
     LineChartComponent,
     EmployeeProfileComponent,
     EmployeeOrdersComponent,
-    NavigationComponent
+    EmployeeSettingsComponent,
+    NavigationComponent,
   ]
 })
 export class CompaniesModule { }

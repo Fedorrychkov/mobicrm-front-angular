@@ -42,7 +42,11 @@ export class EmployeeItemComponent implements OnInit {
       },
       {
           link: `orders`,
-          name: 'Созданные заказы'
+          name: 'Заказы'
+      },
+      {
+          link: `settings`,
+          name: 'Настройки'
       },
     ];
   }
