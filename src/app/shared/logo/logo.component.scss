@@ -7,4 +7,20 @@
     text-align: center;
     margin: $offset-md*.8 0;
     cursor: default;
+    position: relative;
+    & h1 {
+        position: relative;
+        display: inline-block;
+    }
+
+    & span {
+        font-family: 'Roboto', sans-serif;
+        font-size: .85rem;
+        background: $error-color;
+        display: inline-block;
+        padding: 3px 6px;
+        position: absolute;
+        top: 0;
+        right: -40px;
+    }
 }
