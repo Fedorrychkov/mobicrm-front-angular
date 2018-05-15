@@ -4,6 +4,7 @@ import { Endpoint } from '../enums/endpoint.enum';
 import { CompanyService } from './company.service';
 import { RestService }from './rest.service';
 import { StorageService } from './storage.service';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class UserService {
@@ -20,7 +21,8 @@ export class UserService {
   constructor(
     private router: Router,
     private restService: RestService,
-    private storageService: StorageService
+    private storageService: StorageService,
+    private authService: AuthService
   ) { }
 
   /**
@@ -45,6 +47,8 @@ export class UserService {
       this.restService.get(Endpoint.USER_INFO)
         .then( data => {
           this.user = data.body;
+          this.authService.userRole = this.user.role;
+          this.authService.userId = this.user.id;
           res(data);
         }, err => {
           rej(err);
