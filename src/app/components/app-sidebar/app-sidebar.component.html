@@ -3,12 +3,20 @@
   <div class="sidebar__navigation">
     <nav class="sidebar-nav nav">
       <ul class="nav__list">
-        <li *ngFor="let item of navigation">
+        <ng-container *ngFor="let item of navigation" >
+          <li *ngIf="item.directorRole == userRole">
             <a [routerLink]="item.link" class="nav__link" routerLinkActive="nav__link--active">
               <i class="material-icons nav__link-icon">{{ item.icon }}</i>
               <span class="nav__link-title">{{ item.name }}</span>
             </a>
-        </li>
+          </li>
+          <li *ngIf="item.role == userRole">
+            <a [routerLink]="item.link" class="nav__link" routerLinkActive="nav__link--active">
+              <i class="material-icons nav__link-icon">{{ item.icon }}</i>
+              <span class="nav__link-title">{{ item.name }}</span>
+            </a>
+          </li>
+        </ng-container>
       </ul>
     </nav>
   </div>

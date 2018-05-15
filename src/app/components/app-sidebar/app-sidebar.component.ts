@@ -8,9 +8,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class AppSidebarComponent implements OnInit {
   public navigation: any[];
+  public userRole;
 
   constructor(
-    public authService: AuthService
+    private authService: AuthService,
   ) { }
   
   logout() {
@@ -18,31 +19,37 @@ export class AppSidebarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.userRole = this.authService.userRole;
     this.navigation = [
       {
         link: '/dashboard',
         name: 'Консоль',
-        icon: 'dashboard'
+        icon: 'dashboard',
+        directorRole: 1
       },
       {
         link: '/orders',
         name: 'Заказы',
-        icon: 'present_to_all'
+        icon: 'present_to_all',
+        role: 3
       },
       {
         link: '/customers',
         name: 'Клиенты',
-        icon: 'face'
+        icon: 'face',
+        role: 3
       },
       {
         link: '/employees',
         name: 'Сотрудники',
-        icon: 'people_outline'
+        icon: 'people_outline',
+        role: 3
       },
       {
         link: '/companies',
         name: 'Компании',
-        icon: 'next_week'
+        icon: 'next_week',
+        directorRole: 1
       }
     ]
   }
