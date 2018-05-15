@@ -5,4 +5,20 @@
     &__padsm {
         padding: $offset-sm;
     }
+    &__title {
+        &-offset {
+            & .mat-card-header-text {
+                margin: 0;
+            }
+        }
+    }
+    &__subtitle{
+        &-color {
+            &-gray {
+                & .mat-card-header .mat-card-subtitle:not(:first-child) {
+                    color: $gray-color;   
+                }
+            }
+        }
+    }
 }
