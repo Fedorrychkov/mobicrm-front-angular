@@ -9,7 +9,7 @@ import { StorageService }  from './storage.service';
 export class AuthService {
   
   private _userId: Number;
-  private _userRole: Number;
+  private _userRole: string;
   private _authToken: string;
   
   /**
@@ -26,13 +26,13 @@ export class AuthService {
   /**
    * get user role number
    */
-  get userRole() {return this._userRole}
+  get userRole() {return this._userRole || this.storageService.get('mobicrm.user_role')}
 
   /**
    * set user role number
    * @param role number of role
    */
-  set userRole(role: Number) {this._userRole = role}
+  set userRole(role: string) {this._userRole = role; this.storageService.set('mobicrm.user_role', role)}
   
   /**
    */
@@ -66,7 +66,7 @@ export class AuthService {
             this.userId = data.body.id;
             this.userRole = data.body.role;
             this.authToken = data.token;
-            this.router.navigate(['dashboard']);  
+            this.router.navigate(['companies']);  
           }
           res(data);
         }, (err) => {
