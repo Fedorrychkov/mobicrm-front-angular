@@ -23,7 +23,7 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
-import { DashboardTotalComponent, GgmapsComponent, ChartjsComponent, LineChartComponent } from '../../../shared';
+import { DashboardTotalComponent, OneplaceComponent, ChartjsComponent, LineChartComponent, } from '../../../shared';
 import { AddressMapService, GeolocationService } from '../../../services';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
@@ -75,7 +75,7 @@ const APP_MATERIAL = [
     EmployeeItemComponent,
     EmployeeListComponent,
     DashboardTotalComponent,
-    GgmapsComponent,
+    OneplaceComponent,
     ChartjsComponent,
     LineChartComponent,
     EmployeeProfileComponent,
