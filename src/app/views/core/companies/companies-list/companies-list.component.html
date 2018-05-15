@@ -3,10 +3,10 @@
   <div class="page-content__notempty companies-list__notempty" *ngIf="_companies.body.length">
     <h2>Все компании</h2>
     <ul class="companies-list__list">
-      <mat-card *ngFor="let item of _companies.body" [routerLink]="[item.id, 'dashboard']" class="companies-list__item">
+      <mat-card *ngFor="let item of _companies.body" [routerLink]="[item.id, 'dashboard']" class="companies-list__item mcard__subtitle-color-gray mcard__title-offset">
         <mat-card-header>
           <mat-card-title class="companies-list__item-name">{{item.name}}</mat-card-title>
-          <mat-card-subtitle>{{tags}}</mat-card-subtitle>
+          <mat-card-subtitle>{{item.tags}}</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="item.avatar" alt="Photo of a Shiba Inu"> -->
         <mat-card-content>
