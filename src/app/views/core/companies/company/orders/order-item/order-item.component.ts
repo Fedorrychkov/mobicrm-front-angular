@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EventService, CompanyService, OrderService } from '../../../../../../services';
-import { ActivatedRoute } from '@angular/router';
-import { IOrder } from '../../../../../../interfaces/orders';
+import { ActivatedRoute, Router } from '@angular/router';
+import { IOrder, IOrders } from '../../../../../../interfaces/orders';
 
 @Component({
   selector: 'app-order-item',
@@ -10,8 +10,9 @@ import { IOrder } from '../../../../../../interfaces/orders';
 })
 export class OrderItemComponent implements OnInit {
   private id: string;
+  public isEditMode = false;
   public isLoaded = false;
-  public order: IOrder;
+  public order: IOrders;
   public orderCoords: any = {
     latitude: 0,
     longitude: 0
@@ -19,6 +20,7 @@ export class OrderItemComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private eventService: EventService,
     private companyService: CompanyService,
     private orderService: OrderService
@@ -33,6 +35,11 @@ export class OrderItemComponent implements OnInit {
         this.orderCoords.longitude = parseFloat(order.longitude);
         this.orderCoords.latitude = parseFloat(order.latitude);
       });
+  }
+  
+  gotoCustomer() {
+    this.router.navigate([`companies/${this.companyService.companyId}/customers/${this.order.order.customer_id}`]);
+    this.eventService.broadcast('app-header-back', {link: `companies/${this.companyService.companyId}/orders/${this.id}`});
   }
 
   ngOnInit() {
