@@ -8,21 +8,40 @@
           <div class="order__row">
             <mat-icon *ngIf="order.order.status === 'NEW'">new_releases</mat-icon>
           </div>
-        <div class="order__row">
-          <p class="order__item">Наименование заказа</p>
-          <h3 class="order__name">{{order.order.name}}</h3>
+        <div class="order__row order__flex">
+            <div class="order__box" *ngIf="order.customer.phone">
+              <p class="order__item">Наименование заказа</p>
+              <h3 class="order__name order__item">{{order.order.name}}</h3>
+            </div>
+            <div class="order__box">
+              <mat-icon class="order__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
+              <mat-icon class="order__controller" *ngIf="isEditMode" (click)="isEditMode = false">save</mat-icon>
+              <mat-icon class="order__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
+            </div>
         </div>
-        <div class="order__row">
+        <div class="order__row" *ngIf="order.order.description">
           <p class="order__item">Описание заказа</p>
           <p class="order__item">{{order.order.description}}</p>
         </div>
-        <div class="order__row">
+        <div class="order__row" *ngIf="order.order.address">
           <p class="order__item">Адрес</p>
           <p class="order__item">{{order.order.address}}</p>
         </div>
         <div class="order__row">
           <p class="order__item">Исполнитель</p>
           <p class="order__item" *ngIf="!order.order.executor_id">Не назначено</p>
+        </div>
+        <div class="order__common">
+          <div class="order__row order__flex">
+            <div class="order__box">
+              <p class="order__item">Клиент</p>
+              <p class="order__item link link__blue" (click)="gotoCustomer()">{{order.customer.first_name}} {{order.customer.last_name}}</p>
+            </div>
+            <div class="order__box" *ngIf="order.customer.phone">
+              <p class="order__item">Телефон клиента</p>
+              <p class="order__item">{{order.customer.phone}}</p>
+            </div>
+          </div>
         </div>
       </div>
       <div class="order__right">

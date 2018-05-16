@@ -5,16 +5,32 @@
         align-items: flex-start;
     }
     &__row {
-        display: flex;
-        justify-content: flex-start;
+        // display: flex;
+        // justify-content: flex-start;
         margin-bottom: $offset-sm;
     }
     &__item {
-        max-width: 200px;
+        // max-width: 200px;
         width: 100%;
-        margin-right: $offset-md;
+        // margin-right: $offset-md;
+        &:first-child {
+            font-weight: bold;
+            margin: 0 0 $offset-mc;
+        }
     }
     &__left, &__right {
         width: 45%;
+    }
+    &__common {
+        padding: $offset-lg 0 0;
+    }
+    &__controller {
+        color: $gray-color !important;
+        cursor: pointer;
+        transition: all .15s;
+        
+        &:hover {
+            color: $dark-color !important;
+        }
     }
 }
