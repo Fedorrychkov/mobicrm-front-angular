@@ -15,6 +15,7 @@ import { EmployeeOrdersComponent } from './company/employees/employee-item/emplo
 import { CustomerItemComponent } from './company/customers/customer-item/customer-item.component';
 import { EmployeeSettingsComponent } from './company/employees/employee-item/employee-settings/employee-settings.component';
 import { SettingsComponent } from './company/settings/settings.component';
+import { CommonInfoComponent } from './company/settings/common-info/common-info.component';
 
 const routes: Routes = [
   {
@@ -34,7 +35,9 @@ const routes: Routes = [
       {path: 'settings', component: EmployeeSettingsComponent },
     ]},
     { path: 'dashboard', component: DashboardComponent, },
-    { path: 'settings', component: SettingsComponent, },
+    { path: 'settings', component: SettingsComponent, children: [
+      {path: 'common', component: CommonInfoComponent}
+    ]},
     { path: 'orders/:id', component: OrderItemComponent },
     { path: 'customers/:id', component: CustomerItemComponent }
   ]},
