@@ -1,0 +1,11 @@
+.settings {
+    &__controller {
+        color: $gray-color !important;
+        cursor: pointer;
+        transition: all .15s;
+        
+        &:hover {
+            color: $dark-color !important;
+        }
+    }
+}

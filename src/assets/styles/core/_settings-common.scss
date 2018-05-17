@@ -1,0 +1,32 @@
+.settings-common {
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    &__item {
+        width: 48%;
+        background-color: $cards-color;
+        padding: $offset-md;
+        box-sizing: border-box;
+    }
+    
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin: $offset-sm 0;
+        &-item {
+            width: 90%;
+        }
+    }
+
+    &__name {
+        font-weight: bold;
+    }
+
+    &__content {
+        font-size: 1.2rem;
+    }
+}
