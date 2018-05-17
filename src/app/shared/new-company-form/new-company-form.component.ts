@@ -18,6 +18,8 @@ export class NewCompanyFormComponent implements OnInit{
   public errorMessage: string;
   public isLoading = false;
   public id: string;
+  public currency: string = 'RUB';
+  public currencyList: any;
 
   constructor(
     public fb: FormBuilder,
@@ -38,6 +40,7 @@ export class NewCompanyFormComponent implements OnInit{
 
   createCompany(data, valid: boolean) {
     if (!valid) return;
+    data.currency = 'RUB';
     this.companyService.createCompany(data)
       .then( (data) => {
         this.router.navigate([`companies/${data.id}/dashboard`]);
@@ -49,8 +52,13 @@ export class NewCompanyFormComponent implements OnInit{
       name: [this.name, [ Validators.required]],
       description: [this.description, [ Validators.required]],
       address: [this.address],
-      tags: [this.tags]
+      tags: [this.tags],
+      currency: [this.currency, [Validators.required]],
     });
+    this.currencyList = [
+      {value: 'RUB', name: 'Рубли'}
+    ];
+    this.currency = 'RUB';
   }
 
 }
