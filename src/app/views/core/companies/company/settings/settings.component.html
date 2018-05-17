@@ -1,3 +1,8 @@
-<p>
-  settings works!
-</p>
+<div class="page">
+  <div class="page__head mcard__boxshadow">
+     <app-navigation [nav]="navigation"></app-navigation>
+  </div>
+  <div class="page__content tab__content">
+      <router-outlet></router-outlet>
+  </div>
+</div>
