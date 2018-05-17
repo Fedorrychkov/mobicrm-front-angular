@@ -1,0 +1,104 @@
+<div class="page-content" *ngIf="isLoaded">
+  <div class="page-content__notempty">
+    <div class="spinner-load load-component" *ngIf="!isLoaded">
+        <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner>
+    </div>
+    <section class="settings-common__flex settings-common common-info">
+      <article class="settings-common__item mcard__boxshadow">
+          <form [formGroup]="updateCompanyForm"
+          (submit)="updateCompany(updateCompanyForm.value, updateCompanyForm.valid)"
+          class="create-form" autocomplete="off">
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Название компании</div>
+                <div class="settings-common__content">{{company.name}}</div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Название компании" formControlName="name" autofocus required [(ngModel)]="name">
+                  <button mat-button *ngIf="name" matSuffix mat-icon-button aria-label="Clear" (click)="name=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="">
+              <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
+              <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
+            </div>
+          </div>
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Валюта для расчётов в компании</div>
+                <div class="settings-common__content">
+                  <ng-container *ngFor="let curr of currencyList">
+                    <span *ngIf="company.currency == curr.value">{{curr.name}}</span>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <mat-select [(value)]="currency" [(ngModel)]="currency" required formControlName="currency" placeholder="Валюта компании">
+                    <mat-option *ngFor="let item of currencyList" [value]="item.value">{{item.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="settings-common__box" *ngIf="company.address">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Описание компании</div>
+                <div class="settings-common__content">
+                  {{company.description}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <textarea matInput [(ngModel)]="description" maxlength="300" placeholder="Описание компании" required formControlName="description" matTextareaAutosize matAutosizeMinRows="2"
+                    matAutosizeMaxRows="5"></textarea>
+                  <mat-hint align="end">{{description.length}} / 300</mat-hint>
+                  <button mat-button *ngIf="description" matSuffix mat-icon-button aria-label="Clear" (click)="description=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="settings-common__box" *ngIf="company.address">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Адрес компании</div>
+                <div class="settings-common__content">
+                  {{company.address}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Адрес компании" formControlName="address" [(ngModel)]="address">
+                  <button mat-button *ngIf="address" matSuffix mat-icon-button aria-label="Clear" (click)="address=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="settings-common__box" *ngIf="company.tags">
+            <div class="settings-common__box-item">
+              <div class="settings-common__name">Теги</div>
+              <div class="settings-common__content">
+                {{company.tags}}
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-common__box" *ngIf="isEditMode">
+            <button type="submit" mat-raised-button [disabled]="!updateCompanyForm.valid">Обновить информацию о компании</button>
+          </div>
+        </form>
+      </article>
+    </section>
+  </div>
+</div>
