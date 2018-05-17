@@ -49,6 +49,7 @@ export class EmployeeItemComponent implements OnInit {
           name: 'Настройки'
       },
     ];
+    this.router.navigate([`companies/${this.companyService.companyId}/employees/${this.id}/profile`]);
   }
 
 }
