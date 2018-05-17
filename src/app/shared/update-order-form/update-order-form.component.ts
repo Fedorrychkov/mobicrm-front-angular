@@ -51,18 +51,17 @@ export class UpdateOrderFormComponent implements OnInit {
       this.order = this.data.order;
       this.status = this.data.order.order.status;
       this.statusList = [
-        {value: 'OLD', name: 'Устаревший'}, 
+        {value: 'REPEATED_CALL', name: 'Повторный звонок'},
         {value: 'NEW', name: 'Новый заказ'},
-        {value: 'IN PROGRESS', name: 'В процессе'},
-        {value: 'DONE', name: 'Завершено'}
+        {value: 'CUSTOMER_THINK', name: 'Клиент думает'},
+        {value: 'TEST_DRIVE', name: 'Тестовый выезд'},
+        {value: 'INSTALLATION', name: 'Монтаж/Настройка'},
+        {value: 'DAMAGE', name: 'Повреждение'},
+        {value: 'DONE', name: 'Завершено'},
+        {value: 'NOT_RELEVANT', name: 'Не выполнимый'},
       ];
-      console.log(this.data.order, this.status);
       this.updateOrderForm = this.fb.group({
         status: [this.status],
-        // last_name: [this.last_name],
-        // phone: [this.phone, [ Validators.required]],
-        // email: [this.email, [ Validators.email]],
-        // address: [this.address, [ Validators.required]],
       });
     }
 
