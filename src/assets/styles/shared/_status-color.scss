@@ -10,4 +10,102 @@
             color: $error-color;
         }
     }
+    &__damage, &__DAMAGE {
+        &-bg {
+            background-color: $damage-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__done, &__DONE {
+        &-bg {
+            background-color: $done-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__repeated_call, &__REPEATED_CALL {
+        &-bg {
+            background-color: $repeated_call-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__customer_think, &__CUSTOMER_THINK {
+        &-bg {
+            background-color: $customer_think-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__test_drive, &__TEST_DRIVE {
+        &-bg {
+            background-color: $test_drive-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__installation, &__INSTALLATION {
+        &-bg {
+            background-color: $installation-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
+    &__not_relevant, &__NOT_RELEVANT {
+        &-bg {
+            background-color: $not_relevant-status-color !important;
+            & mat-icon {
+                color: $white-color;
+            }
+            & * {
+                color: $white-color;
+            }
+        }
+        &-font {
+            color: $white-color;
+        }
+    }
 }
