@@ -78,10 +78,11 @@ export class CompanyService {
    * 
    * @param req object - name, description and etc.
    */
-  updateCompany(...req): Promise<any> {
+  updateCompany(req): Promise<any> {
     return new Promise((res, rej) => {
-      this.restService.get(Endpoint.COMPANY_UPDATE, {...req})
-        .then( data => {
+      this.restService.get(Endpoint.COMPANY_UPDATE, {
+        ...req
+      }).then( data => {
           res(data);
         }, err => {
           rej(err);
