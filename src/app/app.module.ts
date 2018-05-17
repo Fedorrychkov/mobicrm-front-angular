@@ -17,6 +17,7 @@ import {
   MatIconModule,
   MatSelectModule,
   MatMenuModule,
+  MatTooltipModule,
 } from '@angular/material';
 
 const APP_MATERIAL = [
@@ -28,6 +29,7 @@ const APP_MATERIAL = [
   MatIconModule,
   MatSelectModule,
   MatMenuModule,
+  MatTooltipModule,
 ];
 
 import {
