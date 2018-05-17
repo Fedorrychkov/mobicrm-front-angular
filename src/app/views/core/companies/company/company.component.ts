@@ -46,6 +46,10 @@ export class CompanyComponent implements OnInit {
           link: `${this.id}/employees`,
           name: 'Сотрудники'
       },
+      {
+          link: `${this.id}/settings`,
+          name: 'Настройки'
+      },
     ];
     this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
     this.eventService.broadcast('app-header-back', {link: 'companies'});
