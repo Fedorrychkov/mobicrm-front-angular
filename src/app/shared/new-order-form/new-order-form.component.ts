@@ -28,6 +28,7 @@ export class NewOrderFormComponent implements OnInit{
   public isNewCustomer = false;
   public latitude: string;
   public longitude: string;
+  public price: number = 0;
 
   public customer: ICustomer = {
     id: '',
@@ -68,6 +69,7 @@ export class NewOrderFormComponent implements OnInit{
   createOrder(req, valid: boolean) { // TODO: Дописать возможность выбора исполнителя. Исполнитель может быть назначен сразу или позже
     if(!valid) return;
     req.company_id = this.data.company_id;
+    if (!req.price) req.price = 0;
     const newReq = this.fillCreateRequest(req);
     newReq.longitude = this.longitude;
     newReq.latitude = this.latitude;
@@ -155,8 +157,9 @@ export class NewOrderFormComponent implements OnInit{
       customerPhone: [this.customerPhone, [ Validators.required]],
       customerFName: [this.customerFName],
       customerLName: [this.customerLName],
-      customerEmail: [this.customerEmail, [ Validators.email]],
-      customerAddress: [this.customerAddress, [ Validators.required]]
+      customerEmail: [this.customerEmail],
+      customerAddress: [this.customerAddress, [ Validators.required]],
+      price: [this.price, [Validators.required]],
     });
   }
 

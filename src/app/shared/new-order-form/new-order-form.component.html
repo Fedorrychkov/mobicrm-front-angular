@@ -59,6 +59,12 @@
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Стоимость заказа" formControlName="price" [(ngModel)]="price" required>
+    <button mat-button *ngIf="price" matSuffix mat-icon-button aria-label="Clear" (click)="price=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
   <div class="new-order-form__control">
     <button type="submit" mat-raised-button [disabled]="!newOrderForm.valid">Создать заказ</button>
   </div>
