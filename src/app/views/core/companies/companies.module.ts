@@ -28,6 +28,7 @@ import { AddressMapService, GeolocationService } from '../../../services';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
 import { EmployeeSettingsComponent } from './company/employees/employee-item/employee-settings/employee-settings.component';
+import { SettingsComponent } from './company/settings/settings.component';
 import { NavigationComponent } from '../../../components';
 
 const APP_MATERIAL = [
@@ -82,6 +83,7 @@ const APP_MATERIAL = [
     EmployeeOrdersComponent,
     EmployeeSettingsComponent,
     NavigationComponent,
+    SettingsComponent,
   ]
 })
 export class CompaniesModule { }
