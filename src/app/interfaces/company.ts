@@ -9,6 +9,7 @@ export interface ICompany {
     status?: string,
     tags?: string,
     updatedAt: string
+    currency?: string;
 }
 
 export interface ICompanies {
