@@ -1,7 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatCardModule, MatButtonModule, MatTableModule, MatProgressSpinnerModule, MatIconModule, MatTabsModule } from '@angular/material';
+import { MatCardModule,
+         MatButtonModule,
+         MatTableModule,
+         MatProgressSpinnerModule,
+         MatIconModule,
+         MatTabsModule,
+         MatInputModule,
+         MatSelectModule,
+         MatFormFieldModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AgmCoreModule } from '@agm/core';
 
@@ -30,6 +38,7 @@ import { EmployeeOrdersComponent } from './company/employees/employee-item/emplo
 import { EmployeeSettingsComponent } from './company/employees/employee-item/employee-settings/employee-settings.component';
 import { SettingsComponent } from './company/settings/settings.component';
 import { NavigationComponent } from '../../../components';
+import { CommonInfoComponent } from './company/settings/common-info/common-info.component';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -38,6 +47,9 @@ const APP_MATERIAL = [
   MatTableModule,
   MatIconModule,
   MatTabsModule,
+  MatInputModule,
+  MatSelectModule,
+  MatFormFieldModule,
 ]
 
 
@@ -84,6 +96,7 @@ const APP_MATERIAL = [
     EmployeeSettingsComponent,
     NavigationComponent,
     SettingsComponent,
+    CommonInfoComponent,
   ]
 })
 export class CompaniesModule { }
