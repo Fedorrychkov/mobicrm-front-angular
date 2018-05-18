@@ -6,15 +6,18 @@
         padding: $offset-mc;
         text-decoration: none;
         font-size: 1.4rem;
+        opacity: .9;
         color: $text-common;
         transition: all .15s;
         display: flex;
         justify-content: flex-start;
 
         &:hover {
+            opacity: 1;
             background-color: $navbar-color-hover;
         }
         &--active {
+            opacity: 1;
             color: $white-color;
             background-color: $navbar-color-hover;
             
