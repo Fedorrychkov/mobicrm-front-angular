@@ -1,7 +1,7 @@
 <div class="user" [matMenuTriggerFor]="userTab">
   <div class="user__name" *ngIf="isLoaded">
     <div> {{ user.first_name }} {{ user.last_name }} </div>
-    <div class="user__login">@{{ user.login }}</div>
+    <div class="user__login"><span *ngIf="user.role == 1">@</span><span>{{ user.login }}</span></div>
   </div>
   <div class="user__avatar" *ngIf="isLoaded">
     <img class="user__avatar-image" *ngIf="!user.avatar" src="../../../assets//icons//user-avatar.svg" alt="">
