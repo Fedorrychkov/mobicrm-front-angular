@@ -28,22 +28,42 @@ export class AppSidebarComponent implements OnInit {
         directorRole: 1
       },
       {
+        link: '/profile',
+        name: 'Профиль',
+        icon: 'perm_identity',
+        role: 3,
+        managerRole: 3,
+        stManagerRole: 2,
+      },
+      {
         link: '/orders',
         name: 'Заказы',
         icon: 'present_to_all',
-        role: 3
+        role: 3,
+        managerRole: 3,
+        stManagerRole: 2,
       },
       {
         link: '/customers',
         name: 'Клиенты',
         icon: 'face',
-        role: 3
+        role: 3,
+        managerRole: 3,
+        stManagerRole: 2,
       },
       {
         link: '/employees',
         name: 'Сотрудники',
         icon: 'people_outline',
-        role: 3
+        role: 2,
+        stManagerRole: 2,
+      },
+      {
+        link: '/company',
+        name: 'Компания',
+        icon: 'present_to_all',
+        role: 2,
+        stManagerRole: 2,
       },
       {
         link: '/companies',
