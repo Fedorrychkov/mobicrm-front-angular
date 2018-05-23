@@ -22,7 +22,8 @@ export class UserService {
     private router: Router,
     private restService: RestService,
     private storageService: StorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private companyService: CompanyService
   ) { }
 
   /**
@@ -49,6 +50,7 @@ export class UserService {
           this.user = data.body;
           this.authService.userRole = this.user.role;
           this.authService.userId = this.user.id;
+          if (this.user.company_id) this.companyService.companyId = this.user.company_id;
           res(data);
         }, err => {
           rej(err);
