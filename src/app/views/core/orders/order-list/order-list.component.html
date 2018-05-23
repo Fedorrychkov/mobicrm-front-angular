@@ -1,7 +1,6 @@
 <div class="page-content" *ngIf="isLoaded">
-  <div class="page-content__empty" *ngIf="!_orders.body.length">У Вас ещё нет ни одного заказа!</div>
+  <div class="page-content__empty" *ngIf="!_orders.body.length">В компании ещё нет ни одного заказа!</div>
   <div class="page-content__notempty" *ngIf="_orders.body.length">
-    <h2>Все заказы</h2>
     <table class="table order-table">
       <thead class="table__head">
         <tr class="table__row order-table__row">
