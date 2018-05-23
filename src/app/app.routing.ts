@@ -49,6 +49,12 @@ export const routes: Routes = [
       loadChildren: './views/core/orders/orders.module#OrdersModule',
       canActivate: [ AuthGuard ]
     },
+    {
+      path: 'profile',
+      component: FullLayoutComponent,
+      loadChildren: './views/core/profile-settings/profile-settings.module#ProfileSettingsModule',
+      canActivate: [ AuthGuard ]
+    },
   ];
   
   @NgModule({
