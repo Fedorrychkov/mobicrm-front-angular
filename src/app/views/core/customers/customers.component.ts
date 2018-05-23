@@ -1,11 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService, EventService, CompanyService } from '../../../services';
 
 @Component({
     templateUrl: 'customers.component.html'
 })
 
 export class CustomersComponent implements OnInit {
-    constructor() { }
+    private companyId: string;
+    public customers: any;
+    public isLoaded = false;
+  
+    constructor(
+        private customerService: CustomerService,
+        private eventService: EventService,
+        private companyService: CompanyService
+    ) { }
 
-    ngOnInit() { }
+    getCustomers() {
+      this.customerService.getCustomers(this.companyId)
+        .then( data => {
+            this.customers = data;
+            this.isLoaded = true;
+        });
+    }
+    
+    ngOnInit() {
+        this.companyId = this.companyService.companyId;
+        this.getCustomers();
+        this.eventService.on('customer-list-update').subscribe( () => {
+            this.getCustomers();
+        });
+    }
 }

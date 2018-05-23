@@ -1,1 +1,11 @@
-is customers component
+<div class="page">
+    <div class="page__head mcard__boxshadow">
+        <app-new-customer></app-new-customer>
+    </div>
+    <div class="page__content">
+        <app-customer-list *ngIf="isLoaded" [customers]="customers"></app-customer-list>
+        <div class="spinner-load load-component" *ngIf="!isLoaded">
+            <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner>
+        </div>
+    </div>
+</div>
