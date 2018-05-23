@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CustomerService, EventService, CompanyService, OrderService } from '../../../services';
+import { EventService, CompanyService, OrderService } from '../../../services';
 
 @Component({
     templateUrl: 'orders.component.html'
@@ -28,5 +28,6 @@ export class OrdersComponent implements OnInit {
         this.eventService.on('order-list-update').subscribe( () => {
             this.getOrders();
         });
+
     }
 }
