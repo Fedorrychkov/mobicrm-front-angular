@@ -97,6 +97,8 @@ import {
   OrderStatusIndicatorComponent,
 } from './shared';
 
+import { SharedModule } from './shared/shared.module';
+
 const APP_SHARED = [
   LogoComponent,
   NotificationComponent,
@@ -124,10 +126,7 @@ const APP_SHARED = [
     ReactiveFormsModule,
     FormsModule,
     HttpModule,
-    AgmCoreModule.forRoot({
-      apiKey : 'AIzaSyDPi7juo6FysXcVc5rqXR9Sdb6g0zZZvdA',
-      libraries: ['places']
-    }),
+    SharedModule,
     ...APP_MATERIAL
   ],
   providers: [
