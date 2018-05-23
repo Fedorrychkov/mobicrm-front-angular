@@ -11,7 +11,6 @@ import { MatCardModule,
          MatSelectModule,
          MatFormFieldModule } from '@angular/material';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-import { AgmCoreModule } from '@agm/core';
 
 import { СompaniesComponent } from './companies.component';
 import { СompaniesRoutingModule } from './companies.routing';
@@ -31,7 +30,7 @@ import { NewCustomerComponent } from './company/customers/new-customer/new-custo
 import { NewEmployeeComponent } from './company/employees/new-employee/new-employee.component';
 import { EmployeeItemComponent } from './company/employees/employee-item/employee-item.component';
 import { EmployeeListComponent } from './company/employees/employee-list/employee-list.component';
-import { DashboardTotalComponent, OneplaceComponent, ChartjsComponent, LineChartComponent, } from '../../../shared';
+import { DashboardTotalComponent, ChartjsComponent, LineChartComponent, } from '../../../shared';
 import { AddressMapService, GeolocationService } from '../../../services';
 import { EmployeeProfileComponent } from './company/employees/employee-item/employee-profile/employee-profile.component';
 import { EmployeeOrdersComponent } from './company/employees/employee-item/employee-orders/employee-orders.component';
@@ -39,6 +38,7 @@ import { EmployeeSettingsComponent } from './company/employees/employee-item/emp
 import { SettingsComponent } from './company/settings/settings.component';
 import { NavigationComponent } from '../../../components';
 import { CommonInfoComponent } from './company/settings/common-info/common-info.component';
+import { SharedModule } from '../../../shared/shared.module';
 
 const APP_MATERIAL = [
   MatButtonModule,
@@ -60,10 +60,7 @@ const APP_MATERIAL = [
     ReactiveFormsModule,
     ...APP_MATERIAL,
     ChartsModule,
-    AgmCoreModule.forRoot({
-      apiKey : 'AIzaSyDPi7juo6FysXcVc5rqXR9Sdb6g0zZZvdA',
-      libraries: ['places']
-    })
+    SharedModule,
   ],
   providers: [
     AddressMapService,
@@ -88,7 +85,6 @@ const APP_MATERIAL = [
     EmployeeItemComponent,
     EmployeeListComponent,
     DashboardTotalComponent,
-    OneplaceComponent,
     ChartjsComponent,
     LineChartComponent,
     EmployeeProfileComponent,
