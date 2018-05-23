@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService, EventService } from '../../../services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile-settings',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileSettingsComponent implements OnInit {
 
-  constructor() { }
+  private id: string;
+  public navigation: any;
+
+  constructor(
+    private router: Router,
+    private companyService: CompanyService,
+    private eventService: EventService
+  ) { }
 
   ngOnInit() {
+    this.id = this.companyService.companyId;
   }
-
 }
