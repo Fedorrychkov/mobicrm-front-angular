@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { EventService, CompanyService } from '../../../services';
+import { EventService, CompanyService, AuthService } from '../../../services';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: 'companies.component.html'
@@ -11,11 +12,13 @@ export class СompaniesComponent implements OnInit {
     public headerNav: any[];
 
     constructor(
-        public eventService: EventService,
-        public companyService: CompanyService
+        private eventService: EventService,
+        private companyService: CompanyService,
+        private authService: AuthService,
+        private router: Router
     ) { }
 
-    ngOnInit() {
+    init() {
         this.headerNav = [
             {
                 link: '/',
@@ -29,5 +32,9 @@ export class СompaniesComponent implements OnInit {
             });
         
         this.eventService.broadcast('app-header-nav', {nav: this.headerNav});
+    }
+
+    ngOnInit() {
+        this.authService.userRole != '1' ? this.router.navigate(['orders']) : this.init();
     }
 }
