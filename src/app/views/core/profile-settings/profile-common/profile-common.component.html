@@ -1,3 +1,115 @@
-<p>
-  profile-common works!
-</p>
+<div class="page-content" *ngIf="isLoaded">
+  <div class="page-content__notempty">
+    <div class="spinner-load load-component" *ngIf="!isLoaded">
+        <mat-progress-spinner mode="indeterminate" diameter="100"></mat-progress-spinner>
+    </div>
+    <section class="settings-common__flex settings-common common-info">
+      <article class="settings-common__item mcard__boxshadow">
+          <form [formGroup]="updateProfileForm"
+          (submit)="updateprofile(updateProfileForm.value, updateProfileForm.valid)"
+          class="create-form" autocomplete="off">
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Имя</div>
+                <div class="settings-common__content">{{profile.first_name}}</div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Имя" formControlName="first_name" autofocus [(ngModel)]="first_name">
+                  <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="">
+              <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
+              <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
+            </div>
+          </div>
+          
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Фамилия</div>
+                <div class="settings-common__content">
+                  {{profile.last_name}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Имя" formControlName="last_name" [(ngModel)]="last_name">
+                  <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Логин</div>
+                <div class="settings-common__content">
+                  {{profile.login}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Логин" required formControlName="login" [(ngModel)]="login">
+                  <button mat-button *ngIf="login" matSuffix mat-icon-button aria-label="Clear" (click)="login=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">E-mail</div>
+                <div class="settings-common__content">
+                  {{profile.email}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="E-mail" required formControlName="email" [(ngModel)]="email">
+                  <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          
+          <div class="settings-common__box">
+            <div class="settings-common__box-item">
+              <div class="settings-common__field" *ngIf="!isEditMode">
+                <div class="settings-common__name">Телефон</div>
+                <div class="settings-common__content">
+                  {{profile.phone}}
+                </div>
+              </div>
+              <div class="settings-common__field" *ngIf="isEditMode">
+                <mat-form-field class="example-full-width">
+                  <input type="text" matInput placeholder="Телефон" formControlName="phone" [(ngModel)]="phone">
+                  <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
+                    <mat-icon>close</mat-icon>
+                  </button>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-common__box" *ngIf="isEditMode">
+            <button type="submit" mat-raised-button [disabled]="!updateProfileForm.valid">Обновить пользовательские данные</button>
+          </div>
+        </form>
+      </article>
+    </section>
+  </div>
+</div>
