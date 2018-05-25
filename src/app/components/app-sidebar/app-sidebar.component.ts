@@ -21,12 +21,12 @@ export class AppSidebarComponent implements OnInit {
   ngOnInit() {
     this.userRole = this.authService.userRole;
     this.navigation = [
-      {
-        link: '/dashboard',
-        name: 'Консоль',
-        icon: 'dashboard',
-        directorRole: 1
-      },
+      // {
+      //   link: '/dashboard',
+      //   name: 'Консоль',
+      //   icon: 'dashboard',
+      //   directorRole: 1
+      // },
       {
         link: '/profile',
         name: 'Профиль',
