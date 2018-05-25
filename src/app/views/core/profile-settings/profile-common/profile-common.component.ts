@@ -24,6 +24,8 @@ export class ProfileCommonComponent implements OnInit {
   public status: string;
   public role: string;
 
+  public roleList: any[];
+
   public updateProfileForm: FormGroup;
 
   constructor(
@@ -36,7 +38,12 @@ export class ProfileCommonComponent implements OnInit {
     this.currencyList = [
       {value: 'RUB', name: 'руб.'}
     ];
-
+    this.roleList = [
+      {id: '1', name: 'Директор'},
+      {id: '2', name: 'Ст. менеджер'},
+      {id: '3', name: 'Менеджер'},
+      {id: '4', name: 'Монтажник'},
+    ];
     this.userService.getUser()
       .then( res => {
         this.profile = res.body;
@@ -49,6 +56,7 @@ export class ProfileCommonComponent implements OnInit {
         this.email = res.email;
         this.login = res.login;
         this.phone = res.phone;
+        this.role = res.role;
         this.isLoaded = true;
       });
     this.companyService.getCompany()
@@ -63,10 +71,9 @@ export class ProfileCommonComponent implements OnInit {
       first_name: [this.first_name ],
       last_name: [this.last_name ],
       login: [this.login, [Validators.required]],
-      email: [this.email, [Validators.required]],
-      phone: [this.phone],
+      email: [this.email, [Validators.required, Validators.email]],
+      phone: [this.phone, [Validators.required]],
       status: [this.status],
-      role: [this.role],
       id: [this.id]
     });
   }

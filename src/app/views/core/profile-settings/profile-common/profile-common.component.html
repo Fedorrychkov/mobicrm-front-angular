@@ -6,13 +6,13 @@
     <section class="settings-common__flex settings-common common-info">
       <article class="settings-common__item mcard__boxshadow">
           <div class="settings-common__box">
-              <div class="settings-common__box-item">
-                  <h4 class="settings-common__title title_common">Данные профиля</h4>
-              </div>
-              <div>
-                <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
-                <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
-              </div>
+            <div class="settings-common__box-item">
+                <h4 class="settings-common__title title_common">Данные профиля</h4>
+            </div>
+            <div>
+              <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
+              <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
+            </div>
           </div>
           <form [formGroup]="updateProfileForm"
           (submit)="updateprofile(updateProfileForm.value, updateProfileForm.valid)"
@@ -101,7 +101,7 @@
               </div>
               <div class="settings-common__field" *ngIf="isEditMode">
                 <mat-form-field class="example-full-width">
-                  <input type="text" matInput placeholder="Телефон" formControlName="phone" [(ngModel)]="phone">
+                  <input type="text" matInput placeholder="Телефон" required formControlName="phone" [(ngModel)]="phone">
                   <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
                     <mat-icon>close</mat-icon>
                   </button>
@@ -117,6 +117,23 @@
       </article>
 
       <article class="settings-common__item mcard__boxshadow">
+        <div class="settings-common__box">
+          <div class="settings-common__box-item">
+              <h4 class="settings-common__title title_common">Дополнительная информация</h4>
+          </div>
+        </div>
+        
+        <div class="settings-common__box">
+          <div class="settings-common__box-item">
+            <div class="settings-common__name">Должность</div>
+            <div class="settings-common__content">
+              <ng-container *ngFor="let roleItem of roleList">
+                <span *ngIf="role == roleItem.id">{{roleItem.name}}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
         <div class="settings-common__box">
           <div class="settings-common__box-item">
             <div class="settings-common__name">Заработная плата в месяц</div>
