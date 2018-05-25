@@ -16,6 +16,7 @@ export class ProfileCommonComponent implements OnInit {
   public currency: string;
   
   public id: number;
+  public company_id: number;
   public first_name: string;
   public last_name: string;
   public login: string;
@@ -51,6 +52,7 @@ export class ProfileCommonComponent implements OnInit {
         return res.body;
       }).then( res => {
         this.id = res.id
+        this.company_id = res.company_id;
         this.first_name = res.first_name;
         this.last_name = res.last_name;
         this.email = res.email;
@@ -65,6 +67,19 @@ export class ProfileCommonComponent implements OnInit {
       });
   }
 
+  updateprofile(req, valid: boolean) {
+    if(!valid) return;
+    if(!req.id) req.id = this.id;
+    if(!req.company_id) req.company_id = this.company_id;
+    this.userService.updateUser(req)
+      .then( res => {
+        console.log(res);
+        this.isLoaded = false;
+        this.isEditMode = false;
+        this.getProfile();
+      }) 
+  }
+
   ngOnInit() {
     this.getProfile();
     this.updateProfileForm = this.fb.group({
@@ -74,7 +89,8 @@ export class ProfileCommonComponent implements OnInit {
       email: [this.email, [Validators.required, Validators.email]],
       phone: [this.phone, [Validators.required]],
       status: [this.status],
-      id: [this.id]
+      id: [this.id],
+      company_id: [this.company_id]
     });
   }
 

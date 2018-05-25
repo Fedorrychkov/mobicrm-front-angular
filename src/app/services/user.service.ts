@@ -5,6 +5,7 @@ import { CompanyService } from './company.service';
 import { RestService }from './rest.service';
 import { StorageService } from './storage.service';
 import { AuthService } from './auth.service';
+import { IUser } from '../interfaces/user';
 
 @Injectable()
 export class UserService {
@@ -55,6 +56,22 @@ export class UserService {
         }, err => {
           rej(err);
         });
+    });
+  }
+  
+  /**
+   * 
+   * @param req IUser
+   */
+  updateUser(req: IUser) {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.USER_UPDATE, {
+        ...req
+      }).then( data => {
+        res(data);
+      }, err=> {
+        rej(err);
+      });
     });
   }
 }
