@@ -21,6 +21,11 @@
             width: 90%;
         }
     }
+    
+    &__title {
+        font-size: $font-md;
+        font-weight: normal;
+    }
 
     &__name {
         font-weight: bold;
