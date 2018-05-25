@@ -77,4 +77,20 @@ export class EmployeeService {
       })
     })
   }
+
+  /**
+   * 
+   * @param req object, IUser
+   */
+  updateEmployee(req: any): Promise<any> {
+    return new Promise((res, rej) => {
+      this.restService.get(Endpoint.EMPLOYEE_UPDATE, {
+        ...req
+      }).then( data => {
+        res(data);
+      }, err => {
+        rej(err);
+      })
+    });
+  }
 }
