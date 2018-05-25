@@ -8,6 +8,7 @@ import { StorageService }  from './storage.service';
 @Injectable()
 export class CompanyService {
   private _companyId: string;
+  private _currency: string;
 
   /**
    * Get company id from variable or storageService
@@ -20,6 +21,12 @@ export class CompanyService {
   set companyId(id: string) {
     this.storageService.set('mobicrm.company_id', id);
     this._companyId = id;
+  }
+
+  get currency(){return this._currency || this.storageService.get('mobicrm.currency')}
+  set currency(currency: string) {
+    this.storageService.set('mobicrm.currency', currency);
+    this._currency = currency;
   }
 
   constructor(
@@ -51,6 +58,7 @@ export class CompanyService {
       this.restService.get(Endpoint.COMPANY_GET, {id: id || this.companyId})
         .then( data => {
           this.companyId = data.body.id;
+          this.currency = data.body.currency;
           res(data);
         }, err =>{
           rej(err);
