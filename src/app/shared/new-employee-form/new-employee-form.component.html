@@ -24,18 +24,6 @@
     </mat-select>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Имя" formControlName="first_name" [(ngModel)]="first_name">
-    <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" [(ngModel)]="last_name">
-    <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
-      <mat-icon>close</mat-icon>
-    </button>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Телефон сотрудника" formControlName="phone" required [(ngModel)]="phone">
     <button mat-button *ngIf="phone" matSuffix mat-icon-button aria-label="Clear" (click)="phone=''">
       <mat-icon>close</mat-icon>
@@ -44,6 +32,30 @@
   <mat-form-field class="example-full-width">
     <input type="text" matInput placeholder="Почта сотрудника" formControlName="email" required [(ngModel)]="email">
     <button mat-button *ngIf="email" matSuffix mat-icon-button aria-label="Clear" (click)="email=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Зарплата сотрудника в месяц (у.е.)" required formControlName="rate_per_month" [(ngModel)]="rate_per_month">
+    <button mat-button *ngIf="rate_per_month" matSuffix mat-icon-button aria-label="Clear" (click)="rate_per_month=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Премия сотрудника с выполненного заказа (%)" required formControlName="rate_per_order" [(ngModel)]="rate_per_order">
+    <button mat-button *ngIf="rate_per_order" matSuffix mat-icon-button aria-label="Clear" (click)="rate_per_order=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Имя" formControlName="first_name" [(ngModel)]="first_name">
+    <button mat-button *ngIf="first_name" matSuffix mat-icon-button aria-label="Clear" (click)="first_name=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input type="text" matInput placeholder="Фамилия" formControlName="last_name" [(ngModel)]="last_name">
+    <button mat-button *ngIf="last_name" matSuffix mat-icon-button aria-label="Clear" (click)="last_name=''">
       <mat-icon>close</mat-icon>
     </button>
   </mat-form-field>

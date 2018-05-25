@@ -25,6 +25,8 @@ export class NewEmployeeFormComponent implements OnInit {
   public errorMessage: string;
   public isLoading = false;
   public id: string;
+  public rate_per_month: number = 0;
+  public rate_per_order: number = 0;
 
   public roleList: any[];
 
@@ -77,6 +79,8 @@ export class NewEmployeeFormComponent implements OnInit {
       phone: [this.phone, [ Validators.required]],
       email: [this.email, [ Validators.required, Validators.email]],
       address: [this.address],
+      rate_per_month: [this.rate_per_month, [ Validators.required]],
+      rate_per_order: [this.rate_per_order, [ Validators.required]],
     });
   }
 
