@@ -5,6 +5,15 @@
     </div>
     <section class="settings-common__flex settings-common common-info">
       <article class="settings-common__item mcard__boxshadow">
+          <div class="settings-common__box">
+              <div class="settings-common__box-item">
+                  <h4 class="settings-common__title title_common">Данные профиля</h4>
+              </div>
+              <div>
+                <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
+                <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
+              </div>
+          </div>
           <form [formGroup]="updateProfileForm"
           (submit)="updateprofile(updateProfileForm.value, updateProfileForm.valid)"
           class="create-form" autocomplete="off">
@@ -22,10 +31,6 @@
                   </button>
                 </mat-form-field>
               </div>
-            </div>
-            <div class="">
-              <mat-icon class="settings__controller" *ngIf="!isEditMode" (click)="isEditMode = true">create</mat-icon>
-              <mat-icon class="settings__controller" *ngIf="isEditMode" (click)="isEditMode = false">close</mat-icon>
             </div>
           </div>
           
@@ -109,6 +114,32 @@
             <button type="submit" mat-raised-button [disabled]="!updateProfileForm.valid">Обновить пользовательские данные</button>
           </div>
         </form>
+      </article>
+
+      <article class="settings-common__item mcard__boxshadow">
+        <div class="settings-common__box">
+          <div class="settings-common__box-item">
+            <div class="settings-common__name">Заработная плата в месяц</div>
+            <div class="settings-common__content">
+              <span *ngIf="profile.rate_per_month">{{profile.rate_per_month}} </span>
+              <span *ngIf="!profile.rate_per_month">Не назначено </span>
+              <ng-container *ngFor="let curr of currencyList">
+                <span *ngIf="profile.rate_per_month && currency == curr.value">{{curr.name}}</span>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-common__box">
+          <div class="settings-common__box-item">
+            <div class="settings-common__name">Процент от выполненных сделок</div>
+            <div class="settings-common__content">
+              <span *ngIf="profile.rate_per_order">{{profile.rate_per_order}}</span>
+              <span *ngIf="!profile.rate_per_order">Не назначено</span>
+              <span *ngIf="profile.rate_per_order">%</span>
+            </div>
+          </div>
+        </div>
       </article>
     </section>
   </div>

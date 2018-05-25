@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IUser } from '../../../../interfaces/user';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from '../../../../services';
+import { UserService, CompanyService } from '../../../../services';
 
 @Component({
   selector: 'app-profile-common',
@@ -12,6 +12,8 @@ export class ProfileCommonComponent implements OnInit {
   public isLoaded: boolean = false;
   public isEditMode: boolean = false;
   public profile: IUser;
+  public currencyList: any[];
+  public currency: string;
   
   public id: number;
   public first_name: string;
@@ -21,17 +23,20 @@ export class ProfileCommonComponent implements OnInit {
   public phone: string;
   public status: string;
   public role: string;
-  public rate_per_order: string;
-  public rate_per_month: string;
 
   public updateProfileForm: FormGroup;
 
   constructor(
     public fb: FormBuilder,
-    private userService: UserService
+    private userService: UserService,
+    private companyService: CompanyService
   ) { }
   
   getProfile() {
+    this.currencyList = [
+      {value: 'RUB', name: 'руб.'}
+    ];
+
     this.userService.getUser()
       .then( res => {
         this.profile = res.body;
@@ -44,9 +49,11 @@ export class ProfileCommonComponent implements OnInit {
         this.email = res.email;
         this.login = res.login;
         this.phone = res.phone;
-        this.rate_per_order = res.rate_per_order;
-        this.rate_per_month = res.rate_per_month;
         this.isLoaded = true;
+      });
+    this.companyService.getCompany()
+      .then( res => {
+        this.currency = res.body.currency || this.companyService.currency;
       });
   }
 
@@ -60,8 +67,6 @@ export class ProfileCommonComponent implements OnInit {
       phone: [this.phone],
       status: [this.status],
       role: [this.role],
-      rate_per_month: [this.rate_per_month ],
-      rate_per_order: [this.rate_per_order],
       id: [this.id]
     });
   }
