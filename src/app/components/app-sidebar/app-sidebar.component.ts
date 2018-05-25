@@ -31,6 +31,7 @@ export class AppSidebarComponent implements OnInit {
         link: '/profile',
         name: 'Профиль',
         icon: 'perm_identity',
+        directorRole: 1,
         role: 3,
         managerRole: 3,
         stManagerRole: 2,
