@@ -9,6 +9,6 @@ export interface IUser {
     avatar?: string,
     role: string,
     status?: string,
-    rate_per_order?: string,
-    rate_per_month?: string,
+    rate_per_order?: number,
+    rate_per_month?: number,
 }
